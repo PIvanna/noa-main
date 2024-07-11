@@ -1,0 +1,524 @@
+@import "../shared/styles/base";
+@import "../shared/styles/_mixins.scss";
+@import "../shared/styles/_variables.scss";
+
+
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 880px;
+    padding-bottom: 50px;
+
+    .backgroundFon {
+        position: absolute;
+        @include box(100%, 100%);
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpattern.png?alt=media&token=2d68ae9d-df78-46a7-9287-80e5a0cf9598");
+        background-color: rgba(0, 0, 0, 0.96);
+        background-size: contain;
+        background-repeat: repeat-y;
+        background-blend-mode: multiply;
+        z-index: -1;
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 1;
+        width: 90%;
+        min-height: 880px;
+        margin: 0px auto;
+        padding-top: 50px;
+
+        #title {
+            @include box(100%, 60px);
+            text-align: center;
+            font-size: 42px;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .maps {
+            width: 100%;
+            min-height: 100px;
+            @include flex-row(flex, row, space-between, center);
+
+            iframe {
+                width: 70vw;
+                height: 100vh;
+            }
+
+            .zoneOfDelivery {
+                width: 90%;
+                min-height: 100px;
+                @include flex-row(flex, column, space-between, center);
+                margin-right: 30px;
+
+                .zone {
+                    width: 100%;
+                    height: 235px;
+                    @include flex-row(flex, row, space-between, start);
+
+                    img {
+                        margin-top: 10px;
+                    }
+
+                    .zone-item {
+                        width: 70%;
+
+                        .zone-title {
+                            font-size: 26px;
+                            width: 100%;
+                            font-weight: 500;
+                            font-family: sans-serif;
+                            letter-spacing: 1px;
+                            margin-bottom: 20px;
+                        }
+
+                        ul {
+                            .text-zone {
+                                list-style: none;
+                                font-size: 16px;
+                                color: #c1c1c1;
+                                margin-bottom: 10px;
+                                font-family: sans-serif;
+                                letter-spacing: 0.5px;
+                                position: relative;
+                                padding-left: 23px;
+                                line-height: 23px;
+
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0.3em;
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 50%;
+                                    border: 2px solid #2d7d7d;
+                                    z-index: 1;
+                                }
+                            }
+
+                            #text-zone-red {
+                                &::before {
+                                    border: 2px solid #ef2f3d;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .description {
+            width: 80%;
+            min-height: 100px;
+            margin: 80px auto;
+
+            .description-title {
+                width: 100%;
+                font-size: 46px;
+                line-height: 1.2em;
+                color: white;
+                text-align: left;
+                font-weight: 500;
+                letter-spacing: 1px;
+                font-family: sans-serif;
+            }
+
+            .description-text {
+                width: 100%;
+                font-size: 18px;
+                line-height: 1.5em;
+                color: white;
+                text-align: left;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                font-family: sans-serif;
+                margin-top: 30px;
+            }
+
+            .description-punkts {
+                list-style: none;
+                font-size: 16px;
+                color: #c1c1c1;
+                margin-bottom: 10px;
+                font-family: sans-serif;
+                letter-spacing: 0.5px;
+                position: relative;
+                padding-left: 23px;
+                line-height: 23px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0.3em;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    border: 2px solid #2d7d7d;
+                    z-index: 1;
+                }
+            }
+        }
+
+        .article-title {
+            width: 100%;
+            font-size: 42px;
+            line-height: 1.2em;
+            color: white;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            margin-bottom: 50px;
+        }
+
+        .typeOfPayment {
+            width: 100%;
+            min-height: 200px;
+            @include flex-row(flex, row, space-between, center);
+
+            .payment {
+                width: 28%;
+                min-height: 200px;
+                @include flex-row(flex, row, space-between, start);
+
+                .payment-info {
+                    width: 70%;
+                    min-height: 200px;
+                    margin-left: 20px;
+
+                    .payment-title {
+                        width: 100%;
+                        font-size: 22px;
+                        font-weight: 500;
+                        letter-spacing: 0.03em;
+                        margin-bottom: 15px;
+                        color: white;
+                        font-family: sans-serif;
+                    }
+
+                    .payment-text {
+                        width: 100%;
+                        font-size: 16px;
+                        letter-spacing: 0.03em;
+                        line-height: 1.5em;
+                        color: #c1c1c1;
+                        font-family: sans-serif;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1365px) {
+    .container {
+        .wrapper {
+
+            #title{
+                font-size: 40px;
+            }
+
+            .maps {
+                .zoneOfDelivery {
+
+                    .zone {
+
+                        .zone-item {
+                            .zone-title {
+                                font-size: 24px;
+                            }
+
+                            ul {
+                                .text-zone {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .description {
+                width: 90%;
+
+                .description-title {
+                    font-size: 40px;
+                }
+
+                .description-text {
+                    font-size: 16px;
+                }
+            }
+
+            .article-title {
+                font-size: 38px;
+            }
+
+            .typeOfPayment {
+                .payment {
+                    .payment-info {
+
+                        .payment-title {
+                            font-size: 20px;
+                        }
+
+                        .payment-text {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        .wrapper {
+            #title{
+                font-size: 38px;
+            }
+            .maps {
+                flex-wrap: wrap-reverse;
+
+                iframe {
+                    width: 100vw;
+                    height: 100vh;
+                    margin-bottom: 30px;
+                }
+
+                .zoneOfDelivery {
+                    width: 55%;
+                }
+
+            }
+
+            .typeOfPayment {
+                width: 80%;
+                flex-wrap: wrap;
+                margin: auto;
+
+                .payment {
+                    width: 45%;
+                    min-height: 120px;
+
+                    .payment-info {
+                        width: 80%;
+                        min-height: 120px;
+
+                        .payment-title {
+                            font-size: 20px;
+                        }
+
+                        .payment-text {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        .wrapper {
+            #title{
+                font-size: 36px;
+            }
+            .maps {
+                .zoneOfDelivery {
+                    width: 70%;
+                }
+
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 766px) {
+    .container {
+        .wrapper {
+            #title{
+                font-size: 32px;
+            }
+            .maps {
+                width: 95%;
+                margin: auto;
+
+                iframe {
+                    width: 100vw;
+                    height: 100vh;
+                    margin-bottom: 30px;
+                }
+
+                .zoneOfDelivery {
+                    width: 100%;
+                    margin: auto;
+
+                    .zone {
+
+                        .zone-item {
+                            .zone-title {
+                                font-size: 22px;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .description {
+                width: 80%;
+
+                .description-title {
+                    font-size: 38px;
+                }
+            }
+
+            .article-title {
+                font-size: 34px;
+            }
+
+            .typeOfPayment {
+                .payment {
+                    width: 100%;
+                    min-height: 100px;
+
+                    .payment-info {
+                        min-height: 120px;
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        .wrapper {
+            #title{
+                font-size: 30px;
+            }
+            .description {
+                width: 90%;
+
+                .description-title {
+                    font-size: 38px;
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        .wrapper {
+            #title{
+                font-size: 28px;
+            }
+            .description {
+                width: 95%;
+
+                .description-title {
+                    font-size: 26px;
+                    font-weight: 400;
+                }
+
+                .description-punkts {
+                    font-size: 14px;
+                }
+            }
+
+            .maps {
+                width: 100%;
+
+                .zoneOfDelivery {
+                    width: 100%;
+                    margin: auto;
+
+                    img {
+                        width: 74px;
+                    }
+
+                    .zone {
+                        margin-left: 20px;
+                        margin-right: 20px;
+                        height: 250px;
+
+                        .zone-item {
+                            .zone-title {
+                                font-size: 20px;
+                            }
+
+                            ul {
+                                .text-zone {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .typeOfPayment {
+                width: 100%;
+
+                .payment {
+
+                    .payment-info {
+                        min-height: 150px;
+
+                        .payment-title {
+                            font-size: 18px;
+                        }
+
+                        .payment-text {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        .wrapper {
+            #title{
+                font-size: 26px;
+            }
+            .description {
+                width: 95%;
+
+                .description-title {
+                    font-size: 24px;
+                    font-weight: 400;
+                }
+
+                .description-punkts {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

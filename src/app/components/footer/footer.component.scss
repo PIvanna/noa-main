@@ -1,0 +1,208 @@
+@import "../../shared/styles/_base.scss";
+@import "../../shared/styles/_mixins.scss";
+@import "../../shared/styles/_variables.scss";
+
+.container {
+  position: relative;
+  @include box(100%, 170px);
+
+
+  .backgroundFon {
+    position: absolute;
+    @include box(100%, 170px);
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpattern.png?alt=media&token=2d68ae9d-df78-46a7-9287-80e5a0cf9598");
+    opacity: .05;
+    top: 0;
+    z-index: -1;
+  }
+
+  .main-item {
+    position: relative;
+    @include box(100%, 100%);
+    z-index: 1;
+    @include flex-row(flex, row, space-between, center);
+
+    .up-bottom {
+      @include flex-row(flex, row, space-between, center);
+      @include box(45%, 20px);
+      .yearCreation {
+        @include box(120px, 20px);
+        font-size: 16px;
+        letter-spacing: 1px;
+        margin-left: 50px;
+        font-weight: 500;
+        font-family: sans-serif;
+      }
+
+      .dealAndOferta {
+        @include box(140px, 20px);
+        font-size: 16px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        font-family: sans-serif;
+
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+
+    .down-bottom {
+      @include flex-row(flex, row, space-between, center);
+      @include box(45%, 50px);
+
+      .methodOfPayment {
+        @include box(130px, 22px);
+        @include flex-row(flex, row, space-between, center);
+      }
+
+      .socialMedia {
+        @include box(162px, 47px);
+        @include flex-row(flex, row, space-between, center);
+        margin-right: 50px;
+
+        .social-p {
+          font-size: 16px;
+          letter-spacing: 1px;
+          font-weight: 500;
+          font-family: sans-serif;
+        }
+
+        .media {
+          @include box(16px, 16px);
+
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 1365px) {
+  .container {
+    @include box(100%, 130px);
+
+    .backgroundFon {
+      @include box(100%, 130px);
+    }
+  }
+}
+
+@media screen and (max-width: 1365px) {
+  .container {
+    @include box(100%, 200px);
+
+    .backgroundFon {
+      @include box(100%, 200px);
+    }
+
+    .main-item{
+      @include flex-row(flex, column, center, center);
+
+      .up-bottom {
+        width: 50%;
+        margin-bottom: 30px;
+        .yearCreation{
+          margin-left: 0;
+        }
+      }
+
+      .down-bottom{
+        width: 50%;
+
+        .socialMedia{
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .container {
+    .main-item{
+
+      .up-bottom {
+        width: 70%;
+      }
+
+      .down-bottom{
+        width: 70%;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 675px) {
+  .container {
+    .main-item{
+
+      .up-bottom {
+        width: 70%;
+      }
+
+      .down-bottom{
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .container {
+    .main-item{
+
+      .up-bottom {
+        width: 90%;
+      }
+
+      .down-bottom{
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .container {
+    .main-item{
+
+      .up-bottom {
+        width: 90%;
+
+        .yearCreation {
+          @include box(90px, 20px);
+          font-size: 14px;
+          letter-spacing: 0.5px;
+        }
+
+        .dealAndOferta {
+          @include box(120px, 20px);
+          font-size: 14px;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      .down-bottom{
+        width: 90%;
+
+        .methodOfPayment {
+          @include box(90px, 22px);
+        }
+
+        .socialMedia {
+          @include box(120px, 47px);
+
+          .social-p {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+    }
+  }
+}

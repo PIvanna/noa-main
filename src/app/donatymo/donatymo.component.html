@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="backgroundFon">
+    </div>
+    <div class="wrapper">
+        <h1 id="title">Донатимо разом</h1>
+        <div class="donater-list">
+            <img src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Flogo_text-copy.png?alt=media&token=0de2c267-49fb-4b7f-ab3e-ea40ac0b5823"
+                alt="" class="donater">
+            <img src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Ftomatina.png?alt=media&token=40f16407-b824-4183-ad03-98f0a88adf28"
+                alt="" class="donater">
+            <img src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Femily.png?alt=media&token=8dfd312e-4125-49f6-bd69-cc6019b4ebfb"
+                alt="" class="donater">
+            <img src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpoke-lulu.png?alt=media&token=e686e438-c155-4ea8-825f-753a5f3f9b0c"
+                alt="" class="donater">
+            <img src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Flogo_text.png?alt=media&token=021a02b9-fea7-4250-b51e-cdeca94103f1"
+                alt="" class="donater">
+            <img src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fty.png?alt=media&token=1feff6fd-29f1-4dbc-b2d8-abc0e116ea07"
+                alt="" class="donater">
+        </div>
+        <p class="count"><span class="count-span">{{ count }}</span> грн</p>
+        <div class="description">
+            <h2 class="description-title">Як долучитись?</h2>
+            <p class="description-text">Звіт про допомогу ЗСУ</p>
+            <p class="description-text">Завдяки вашій активній позиції ми досягли значних успіхів у підтримці наших
+                захисників! Ми придбали <b>7 авто</b> та переобладнали їх на <b>Бандеромобілі</b>, які вже несуть службу
+                на передовій, захищаючи свободу кожного українця.</p>
+            <p class="description-text">Завдяки акції «Страви Підтримки» нам вдалося зібрати кошти на <b>2 комплекти
+                    РЕБ</b> (радіоелектронної боротьби), <b>Ecoflow</b>, фінансову допомогу <b>93 та 125 бригад,
+                    спорядження та одяг, паливо та газ для авто, фінансування лікування військових, купівлю ноутбука,
+                    маскувальних сіток, ремонт автомобілів, газові грілки</b> для обігріву в холодну пору року.</p>
+            <p class="description-text">Ми безмежно вдячні кожному, хто долучився до нашої спільної справи! 100% з
+                продажу кожної страви з акції <b>«Страви Підтримки» йдуть на допомогу ЗСУ. Разом ми сильніші! Разом ми –
+                    непереможні!</b></p>
+            <p class="description-text"><b>Зробіть свій внесок у перемогу! Замовте страву підтримки та наближте омріяний
+                    мир!</b></p>
+        </div>
+        <div class="carousel">
+            <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 55 + '%)'">
+              <div class="carousel-slide" *ngFor="let image of images">
+                <img [src]="image" alt="Carousel Image" />
+              </div>
+            </div>
+            <div class="carousel-buttons">
+              <button class="carousel-button" (click)="prevSlide()">&#10094;</button>
+              <button class="carousel-button" (click)="nextSlide()">&#10095;</button>
+            </div>
+            <div class="carousel-nav">
+                <button 
+                  class="carousel-nav-button" 
+                  *ngFor="let image of images; let i = index" 
+                  (click)="goToSlide(i)" 
+                  [ngClass]="{'active': currentIndex === i}">
+                  {{ i + 1 }}
+                </button>
+              </div>
+          </div>
+    </div>
+</div>

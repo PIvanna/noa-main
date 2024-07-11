@@ -1,0 +1,18 @@
+@mixin box($w, $h){
+  width: $w;
+  height: $h;
+}
+
+@mixin flex-row($d, $f, $j, $a){
+  display: $d;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+
+@mixin text($s, $f, $w){
+  font-size: $s;
+  font-family: $f;
+  font-weight: $w;
+}
+

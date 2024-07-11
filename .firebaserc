@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "noa": "noa1-cc860",
+    "default": "noa1-cc860"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
