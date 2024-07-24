@@ -1,1 +1,119 @@
-<p>home works!</p>
+<div class="container">
+    <div class="backgroundFon"></div>
+    <video id="myVideo" muted autoplay loop>
+        <source
+            src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fnoa3-1.mp4?alt=media&token=32a95530-86e4-479a-9f30-eb98e4e029a9"
+            type="video/mp4">
+        Ваш браузер не підтримує відео тег.
+    </video>
+    <div class="wrapper">
+        <h2 class="title">ОСОБЛИВА АЗІЯ</h2>
+        <div class="wrapper-menu">
+            <div class="punkts-menu" *ngFor="let category of categories">
+                <div class="image-container">
+                    <img [src]="category.imagePath" class="image-category" alt="{{ category.name }}">
+                </div>
+                <h3 class="category-name">{{ category.name }}</h3>
+            </div>
+        </div>
+        <h2 class="title">СТРАВИ, ЯКІ ВАМ СПОДОБАЮТЬСЯ</h2>
+        <div class="wrapper-product">
+            <div class="slider-container">
+                <div class="slider" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)'}">
+                    <div class="slider-item" *ngFor="let product of userProducts">
+                        <div class="image-container-product">
+                            <img [src]="product.imagePath" class="image-product" alt="{{ product.name }}">
+                        </div>
+                        <div class="nameOfProduct">
+                            <h3 class="product-name">{{ product.name }}</h3>
+                            <p class="product-price">{{ product.price }}</p>
+                        </div>
+                        <p class="product-description">{{ product.description | slice:0:80}} <span *ngIf="product.description.length > 80">...</span></p>
+                        <div class="buttons">
+                            <div class="manageCount">
+                                <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>
+                                <input class="countProduct" type="text"
+                                    [value]="product.count === null || product.count === 0 ? 1 : product.count" readonly
+                                    style="width: 40px;">
+                                <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
+                            </div>
+                            <button class="btnOrder" type="button">Замовити</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="prev" (click)="prevSlide()">&#10094;</button>
+                <button class="next" (click)="nextSlide()">&#10095;</button>
+            </div>
+
+        </div>
+        <div class="content">
+            <h4 class="title-content">Ресторан азійської кухні NOA Львів
+            </h4>
+            <p class="title-description">Пікантна, яскрава, різноманітна та ну дуууже смачна — саме так можна
+                охарактеризувати азійську кухню. Асортимент страв вражає навіть найбільш вибагливих гурманів. А
+                унікальні поєднання інгредієнтів — нікого не залишають байдужим. Тож не відкладайте на потім: пориньте у
+                світ смачних страв просто зараз!</p>
+            <p class="title-description">Ресторан NOA підготував для вас величезне меню з традиційними ролами, локшиною
+                вок, десертами і ще багато страв різноманітного меню азійської їжі, також можна замовити напої, які
+                чудово підкреслюють смак страв. А наша найшвидша доставка привезе ваше замовлення у будь-який куточок
+                Львова!</p>
+            <div class="hide-block" *ngIf="contentOpen">
+                <h3 class="title-content">Основні страви азійської кухні — що оберете сьогодні?</h3>
+                <p class="title-description">Шеф-кухарі NOA ретельно збирали найкращі рецепти китайської, японської,
+                    тайської кухні. Для того, щоб ви могли смакувати улюбленими азійськими стравами у себе вдома: тоді,
+                    коли забажаєте. У нас є все для смачного обіду, ситної вечері або великого застілля з друзями:</p>
+                <ul>
+                    <li class="li-type title-description"><span class="under">Суші</span> та <span
+                            class="under">суші-сети</span> — за традиційними та авторськими рецептами. Обов’язково
+                        спробуйте рол Авокадо з вугрем, Токійський дракон, Акайо та Мідора — буде смачно!</li>
+                    <li class="li-type title-description"><span class="under">Страви WOK</span> — локшина та рис. З
+                        куркою, морепродуктами, овочами та смачними соусами, приготованими власноруч.</li>
+                    <li class="li-type title-description"><span class="under">Рамени</span> — найрізноманітніші та
+                        найсмачніші! З яловичиною, гьодзе, курятиною, свининою та морепродуктами. До речі, рамен — це
+                        зовсім не суп, а локшина з бульйоном. Спробуйте, і переконайтеся!</li>
+                    <li class="li-type title-description"><span class="under">Боули</span> — одночасно смачно та
+                        корисно. Вирішуйте, який боул хочете скуштувати сьогодні: з тунцем, лососем чи іншими смачними
+                        інгредієнтами.</li>
+                </ul>
+                <p class="title-description">Бажаєте поснідати з NOA? Жодних проблем! Наше меню сніданків доступне з 10
+                    ранку і до 18 вечора — підійде навіть тим, хто звик прокидатися пообіді. Готуємо сирники, тости,
+                    омлети та хашбраун — вибирайте те, що вам до душі. </p>
+                <p class="title-description">А ще, у нас є стартери, десерти, велике меню напоїв: усе, що потрібно для
+                    повноцінного обіду або вечері. Кожна страва створена з любов’ю. Адже ми готуємо страви для вас, як
+                    для своїх рідних. Турбуємося про те, щоб ви хотіли повертатися в “НОА” ще і ще, стали одним з наших
+                    постійних клієнтів.</p>
+                <p class="title-description">Ми створюємо азійські страви лише зі свіжих, добірних компонентів. Дбаємо
+                    про їх правильне зберігання та ретельно обробку. Саме тому, кожна страва — дуже смачна. А наші гості
+                    — задоволені!</p>
+                <h4 class="title-content">Справжня азійська кухня з доставкою у Львові</h4>
+                <p class="title-description">Лінь стояти біля плити? Без паніки: NOA вже поспішає доставити ваші
+                    улюблені страви. Пікантний WOK, роли, рамен — обирайте те, що вам до смаку. Наші шеф-кухарі
+                    приготують справжню азійську їжу саме для вас. А кур’єри — миттєво доставлять замовлення прямісінько
+                    до дверей. Тому не відкладайте на потім: куштуйте улюблені страви азійської кухні та новинки від
+                    нашої команди.</p>
+                <p class="title-description">Замовляєте у нас вперше? Розкажемо, як працює наша доставка:</p>
+                <ul>
+                    <li class="li-type title-description">Готуємо страви щодня та без вихідних. Приймаємо замовлення з
+                        10:00 до 22:55. Насолоджуйтесь улюбленими стравами хоч щодня!</li>
+                    <li class="li-type title-description">Привозимо їжу в Зеленій зоні за 45 хвилин, у Жовтій — за 55, у
+                        Червоній — за 65. Дбаємо про те, щоб ви могли отримати своє замовлення якомога швидше.</li>
+                    <li class="li-type title-description">Діє безкоштовна доставка для замовлень на суму 300+ гривень.
+                        Не переплачуйте зайвого!</li>
+                    <li class="li-type title-description">Оплатити замовлення можна зручними способами — на сайті через
+                        систему LiqPay, карткою або готівкою кур’єру. Просто оберіть варіант, який підходить саме вам.
+                    </li>
+                </ul>
+                <p class="title-description">Ми готуємо та доставляємо їжу азійської кухні професійно та швидко, тому,
+                    що кожну страву готують з любов’ю. Тому замовляйте нашу доставку, або відвідуйте заклади — з
+                    друзями, рідними, коханою людиною. Приємна атмосфера, професійне обслуговування та смачна їжа
+                    гарантовані.</p>
+                <p class="title-description">Насолоджуйтесь улюбленими стравами з ресторану НОА у Львові!</p>
+
+            </div>
+            <div class="more" (click)="openContent()" *ngIf="!contentOpen">ЧИТАТИ БІЛЬШЕ
+            </div>
+            <div class="more" (click)="closeContent()" style="color: #2D7D7D;" *ngIf="contentOpen">Згорнути
+            </div>
+        </div>
+    </div>
+</div>

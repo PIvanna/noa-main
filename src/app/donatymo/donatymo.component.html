@@ -44,15 +44,5 @@
               <button class="carousel-button" (click)="prevSlide()">&#10094;</button>
               <button class="carousel-button" (click)="nextSlide()">&#10095;</button>
             </div>
-            <div class="carousel-nav">
-                <button 
-                  class="carousel-nav-button" 
-                  *ngFor="let image of images; let i = index" 
-                  (click)="goToSlide(i)" 
-                  [ngClass]="{'active': currentIndex === i}">
-                  {{ i + 1 }}
-                </button>
-              </div>
-          </div>
     </div>
 </div>

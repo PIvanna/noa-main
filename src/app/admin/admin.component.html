@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="backgroundFon"></div>
+    <div class="wrapper">
+      <ul class="menu">
+        <li class="punkts-menu" [routerLink]="['/admin/category']" routerLinkActive="route-active-admin">Категорії</li>
+        <li class="punkts-menu" [routerLink]="['/admin/product']" routerLinkActive="route-active-admin">Продукти</li>
+        <li class="punkts-menu" (click)="logout()">Вихід</li>
+      </ul>
+      <div class="cont">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

@@ -8,16 +8,27 @@ import { JobComponent } from './job/job.component';
 import { JobMeetComponent } from './job-meet/job-meet.component';
 import { DonatymoComponent } from './donatymo/donatymo.component';
 import { OfertaComponent } from './oferta/oferta.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'delivery-payment', component: DeliveryPaymentComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'job', component: JobComponent},
-  {path: 'job-meet', component: JobMeetComponent},
-  {path: 'donatymo', component: DonatymoComponent},
-  {path: 'oferta', component: OfertaComponent},
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'delivery-payment', component: DeliveryPaymentComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'job', component: JobComponent },
+  { path: 'job-meet', component: JobMeetComponent },
+  { path: 'donatymo', component: DonatymoComponent },
+  { path: 'oferta', component: OfertaComponent },
+  { path: 'auth', component: AuthorizationComponent },
+  {
+    path: 'admin', component: AdminComponent, children: [
+      { path: 'category', component: AdminCategoryComponent },
+      { path: 'product', component: AdminProductComponent }
+    ]
+  },
 ];
 
 @NgModule({

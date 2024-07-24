@@ -1,0 +1,15 @@
+<div class="container">
+    <form [formGroup]="authForm" id="form" (ngSubmit)="loginAdmin()">
+        <div class="group">
+            <label class="label" for="email">Email</label>
+            <input formControlName="email" class="inputForm" name="email" placeholder="*Ваш email" type="text"
+                id="email">
+        </div>
+        <div class="group">
+            <label for="password" class="label">Password</label>
+            <input formControlName="password" class="inputForm" placeholder="*Ваш пароль" name="password"
+                type="password" id="password">
+        </div>
+        <button [disabled]="authForm.invalid" id="butLogin" type="submit">Увійти</button>
+    </form>
+</div>

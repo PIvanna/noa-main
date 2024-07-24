@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="add">
+        <button type="button" [ngClass]="{'active-but': bShowForm}" (click)="showForm()" class="butAdd">Додати
+            категорію</button>
+        <form [style.display]="bShowForm ? 'block' : 'none'" [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+            <div class="first-part">
+                <input formControlName="name" class="input-first-part" [placeholder]="placeholderName" type="text">
+                <input formControlName="path" class="input-first-part" [placeholder]="placeholderTitle" type="text">
+            </div>
+            <div *ngIf="!isUploaded">
+                <input type="file" (change)="upload($event)" id="myFile" style="display: none;">
+                <div style="display: flex; align-items: center;">
+                    <label for="myFile" class="custom-file-upload">Вибрати файл</label>
+                    <span>{{ selectedFileName ? 'Файл вибрано: ' + selectedFileName : 'Файл не обрано' }}</span>
+                </div>
+                <div>
+                    <div class="progress-bar" role="progressbar" [style.width.%]="uploadPercent"></div>
+                </div>
+            </div>
+            <div *ngIf="isUploaded" style="display: flex; flex-direction: column;">
+                <img id="imgUp" [src]="valueByControl('imagePath')" alt="">
+                <button type="button" class="delImg" (click)="deleteImage()">delete</button>
+            </div>
+            <button [disabled]="categoryForm.invalid" type="submit" [ngClass]="{'active-but': bShowForm}"
+                (click)="showForm()" class="butAddElement"> {{ editStatus ? 'Save' : 'Add' }}</button>
+        </form>
+    </div>
+
+    <div class="table">
+        <div class="topTable">
+            <div style="width: 10%;" class="elementTable">№</div>
+            <div style="width: 10%;" class="elementTable">Назва</div>
+            <div style="width: 20%" class="elementTable">Шлях</div>
+            <div class="elementTable">Картинка</div>
+            <div class="elementTable">Дії</div>
+        </div>
+        <div class="restTable" *ngFor="let category of adminCategory; index as i ">
+            <div style="width: 10%;" class="elementTable">{{ i + 1 }}</div>
+            <div style="width: 10%;" class="elementTable">{{ category.name }}</div>
+            <div style="width: 20%" class="elementTable">{{ category.path }}</div>
+            <div class="elementTable">
+                <img [src]="category.imagePath" alt="">
+            </div>
+            <div class="elementTable">
+                <button class="pManage" (click)="editCategory(category)">Редагувати</button>
+                <button class="pManage" [disabled]="editStatus" (click)="deleteCategory(category)">Видалити</button>
+            </div>
+        </div>
+    </div>
+</div>
