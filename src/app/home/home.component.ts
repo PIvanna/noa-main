@@ -22,7 +22,7 @@ export class HomeComponent implements OnDestroy {
     private categoryService: CategoryService,
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    public orderService: OrderService,
+    public orderService: OrderService, 
     private router: Router
   ) {
     this.eventSubscription = this.router.events.subscribe(event => {

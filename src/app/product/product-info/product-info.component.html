@@ -1,0 +1,63 @@
+
+<div class="container">
+    <div class="backgroundFon">
+    </div>
+    <ul class="breadcrumps">
+        <li [routerLink]="[ '' ]">NOA</li>
+        <li [routerLink]="['/product', currentProduct.category.path]">{{ currentProduct.category.name }}</li>
+        <li >{{ currentProduct.name }}</li>
+    </ul>
+    <div class="wrapper">
+        <div class="card">
+            <div class="image-container">
+                <img [src]="currentProduct?.imagePath" alt="" class="image-product">
+            </div>
+            <div class="content-product">
+                <p class="prodct-weigh">{{ currentProduct?.weight }} г</p>
+                <h2 class="product-name">{{ currentProduct?.name }}</h2>
+                <p class="product-description">{{ currentProduct?.description }}</p>
+                <div class="buttons">
+                    <div class="manageCount">
+                        <button type="button" (click)="productCount(currentProduct, false)" class="btnMinus">-</button>
+                        <input class="countProduct" type="text"
+                            [value]="currentProduct.count === null || currentProduct.count === 0 ? 1 : currentProduct.count"
+                            readonly style="width: 40px;">
+                        <button type="button" (click)="productCount(currentProduct, true)" class="btnAdd">+</button>
+                    </div>
+                    <p class="product-price">{{ currentProduct.price}} грн</p>
+                </div>
+                <button class="btnOrder" type="button">Додати в кошик</button>
+            </div>
+        </div>
+        <h2 class="title">Інші</h2>
+        <div class="wrapper-product">
+            <div class="slider-container">
+                <div class="slider" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)'}">
+                    <div class="slider-item" *ngFor="let product of userProducts">
+                        <div class="image-container-product">
+                            <img [src]="product.imagePath" class="image-product" alt="{{ product.name }}">
+                        </div>
+                        <div class="nameOfProduct">
+                            <h3 class="product-name">{{ product.name }}</h3>
+                            <p class="product-price">{{ product.price }}</p>
+                        </div>
+                        <p class="product-description">{{ product.description | slice:0:80}} <span
+                                *ngIf="product.description.length > 80">...</span></p>
+                        <div class="buttons">
+                            <div class="manageCount">
+                                <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>
+                                <input class="countProduct" type="text"
+                                    [value]="product.count === null || product.count === 0 ? 1 : product.count" readonly
+                                    style="width: 40px;">
+                                <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
+                            </div>
+                            <button class="btnOrder" type="button">Замовити</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="prev" (click)="prevSlide()">&#10094;</button>
+                <button class="next" (click)="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </div>
+</div>

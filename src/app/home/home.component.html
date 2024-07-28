@@ -9,9 +9,9 @@
     <div class="wrapper">
         <h2 class="title">ОСОБЛИВА АЗІЯ</h2>
         <div class="wrapper-menu">
-            <div class="punkts-menu" *ngFor="let category of categories">
-                <div class="image-container">
-                    <img [src]="category.imagePath" class="image-category" alt="{{ category.name }}">
+            <div class="punkts-menu" *ngFor="let category of categories" [routerLink]="['/product', category.path]">
+                <div class="image-container" > 
+                    <img [src]="category.imagePath"  class="image-category" alt="{{ category.name }}">
                 </div>
                 <h3 class="category-name">{{ category.name }}</h3>
             </div>

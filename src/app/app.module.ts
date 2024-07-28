@@ -24,6 +24,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { ProductComponent } from './product/product.component';
+import { ProductInfoComponent } from './product/product-info/product-info.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
     AdminComponent,
     AdminCategoryComponent,
     AdminProductComponent,
+    ProductComponent,
+    ProductInfoComponent,
   ],
   imports: [
     BrowserModule,

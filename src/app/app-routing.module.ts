@@ -12,6 +12,9 @@ import { AuthorizationComponent } from './authorization/authorization.component'
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { ProductComponent } from './product/product.component';
+import { ProductInfoComponent } from './product/product-info/product-info.component';
+import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +31,17 @@ const routes: Routes = [
       { path: 'category', component: AdminCategoryComponent },
       { path: 'product', component: AdminProductComponent }
     ]
+  },
+  {
+    path: 'product/:category',
+    component: ProductComponent
+  },
+  {
+    path: 'product/:category/:id',
+    component: ProductInfoComponent,
+    resolve: {
+      productInfo: ProductInfoResolver
+    }
   },
 ];
 
