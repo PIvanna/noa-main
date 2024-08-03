@@ -1,0 +1,74 @@
+<ng-container  *ngIf="!isLogin; else register">
+    <form [formGroup]="authForm">
+        <div class="backgroundFon"></div>
+        <p class="nameModule">{{ !isLogin ? 'Вхід в кабінет' : 'Зареєструватись' }}</p>
+        <div class="form-group">
+            <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" class="inputForm" formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="form-group" >
+            <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+                <mat-label>Пароль</mat-label>
+                <input matInput type="password" class="inputForm" formControlName="password">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button class="butForm" type="button" *ngIf="!isLogin" (click)="loginUser()"
+            mat-dialog-close>Увійти в кабінет</button>
+        <div class="textBlock">
+            <a class="textModule" style="color: #2D7D7D;">Забули пароль</a>
+            <a class="textModule"  (click)="changeIsLogin()">{{ !isLogin ? 'Зареєструватись' : 'Увійти в кабінет' }}</a>
+        </div>
+    </form>
+</ng-container>
+<ng-template #register>
+    <form [formGroup]="registerForm">
+        <div class="backgroundFon"></div>
+
+        <p class="nameModule">{{ !isLogin ? 'Вхід в кабінет' : 'Зареєструватись' }}</p>
+        <div class="form-group" *ngIf="isLogin">
+            <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+                <mat-label>Ваше ім'я</mat-label>
+                <input matInput type="text" class="inputForm" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+                <mat-label>Ваше прізвище</mat-label>
+                <input matInput type="text" class="inputForm" formControlName="lastName">
+            </mat-form-field>
+        </div>
+        <div class="form-group" *ngIf="isLogin">
+            <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+                <mat-label>Ваш телефон</mat-label>
+                <input matInput type="text" class="inputForm" formControlName="phoneNumber">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" class="inputForm" formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+                <mat-label>Пароль</mat-label>
+                <input (input)="checkConfirmedPassword()" style="border-radius: 20px !important;" matInput
+                    type="password" class="inputForm" formControlName="password">
+            </mat-form-field>
+            <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+                <mat-label>Повторіть пароль</mat-label>
+                <input (input)="checkConfirmedPassword()" matInput type="password" class="inputForm"
+                    formControlName="passwordRepeat">
+                <mat-error *ngIf="checkVisibilityError('passwordRepeat', 'matchError')">Confirmed password is
+                    required</mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button class="butForm" type="button" *ngIf="isLogin"
+            (click)="registerUser()">Зареєструватись</button>
+        <div class="textBlock" [ngStyle]="{'justify-content': isRegister ? 'space-between' : 'center'}">
+            <a class="textModule" *ngIf="!isLogin">Забули пароль</a>
+            <span  class="textModule" *ngIf="!isRegister">Уже зареєстровані?  </span>
+            <a class="textModule" [ngStyle]="{'color': isRegister ? 'black' : '#2D7D7D'}"  (click)="changeIsLogin()">{{ !isLogin ? 'Зареєструватись' : ' Увійти' }}</a>
+        </div>
+    </form>
+</ng-template>

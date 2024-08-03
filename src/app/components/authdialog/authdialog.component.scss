@@ -1,0 +1,97 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins.scss";
+@import "../../shared/styles/variables.scss";
+
+
+form {
+    position: relative;
+
+    .backgroundFon {
+        position: absolute;
+        @include box(100%, 100%);
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpattern.png?alt=media&token=2d68ae9d-df78-46a7-9287-80e5a0cf9598");
+        opacity: .05;
+        top: 0;
+        z-index: 0;
+    }
+
+    @include flex-row(flex, column, space-around, center);
+    padding-top: 50px;
+    min-height: 442px;;
+    width: 680px;
+    padding-bottom: 40px;
+
+    .nameModule {
+        @include box(100%, 50px);
+        @include text(34px, sans-serif, bold);
+        text-align: center;
+        line-height: 40px;
+        letter-spacing: 3px;
+        margin-bottom: 40px;
+    }
+
+    .form-group {
+        @include box(100%, 60px);
+        margin: 10px 0;
+        @include flex-row(flex, row, space-around, center);
+    }
+
+    .inputForm {
+        border-radius: 15px;
+    }
+
+    .mat-mdc-text-field-wrapper {
+        border-radius: 15px;
+    }
+
+    .butForm {
+        @include box(90%, 56px);
+        background-color: #2D7D7D;
+        border: 2px solid transparent;
+        transition: background-color 0.5s, border 0.5s;
+        position: relative;
+        border-radius: 6px;
+        z-index: 2;
+        color: white;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+
+        &:hover {
+            border: 3px solid #2D7D7D;
+            background-color: white;
+            color: #2D7D7D;
+        }
+    }
+
+    .textModule {
+        @include text(16px, sans-serif, normal);
+        text-decoration: none;
+       
+    }
+
+   
+
+     
+
+    .textBlock {
+        @include box(90%, 50px);
+        @include flex-row(flex, row, space-between, center);
+
+        .textModule {
+            color: black;
+            border-bottom: 3px solid transparent;
+            transition: color 0.5s, border-bottom 0.5s;
+            position: relative;
+
+            
+
+        }
+
+
+        
+
+    }
+}

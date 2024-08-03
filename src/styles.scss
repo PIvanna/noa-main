@@ -2,3 +2,6 @@
 @import "../src/app/shared/styles/base";
 @import "../src/app/shared/styles/mixins";
 @import "../src/app/shared/styles/variables";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

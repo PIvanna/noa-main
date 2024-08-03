@@ -1,8 +1,12 @@
 export interface IUserInfo {
-    name: string | null;
-    surname: string | null;
+    firstName: string | null;
+    lastName: string | null;
     email: string | null;
-    number: string | null;
-    birthday?: string | null; 
+    phoneNumber: string | null;
+    address: [] | null,
+    orders: [] | null
 }
 
+export interface IIUserInfoResponse extends IUserInfo {
+    id: number | string;
+}

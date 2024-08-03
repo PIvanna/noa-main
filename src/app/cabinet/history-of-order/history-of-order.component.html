@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="table">
+        <div class="table-row table-header">
+            <div class="table-punkt title number">№ замовлення</div>
+            <div class="table-punkt title date">Дата та час</div>
+            <div class="table-punkt title address">Адреса</div>
+            <div class="table-punkt title suma">Сума</div>
+            <div class="table-punkt title status">Статус</div>
+        </div>
+        <div class="orders-container" *ngIf="orders.length > 0">
+            <div class="table-row" *ngFor="let order of orders; let i = index">
+                <div class="table-punkt number">{{ i + 1 }}</div>
+                <div class="table-punkt date"></div>
+                <div class="table-punkt address"></div>
+                <div class="table-punkt suma"></div>
+                <div class="table-punkt status"></div>
+            </div>
+        </div>
+        <div class="table-row" *ngIf="orders.length == 0">
+            <p class="message">Поки що ви не зробили жодного замовлення <span class="message-span" [routerLink]="['']">перейти в каталог</span></p>
+        </div>
+    </div>
+</div>

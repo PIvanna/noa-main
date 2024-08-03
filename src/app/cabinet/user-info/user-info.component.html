@@ -1,0 +1,33 @@
+<div class="container">
+    <form id="formPersonal" [formGroup]="personalForm" (ngSubmit)="saveChange()">
+        <div class="punkts-menu">
+            <div class="num">1.</div>
+            <div class="label">Особисті дані</div>
+        </div>
+        <div class="group">
+            <input formControlName="firstName" class="input-small" name="name" placeholder="*Ваше ім'я" type="text"
+                id="name">
+            <input type="text" formControlName="lastName" class="input-small" name="surname"
+                placeholder="*Ваше прізвище">
+        </div>
+        <div class="group">
+            <input formControlName="phoneNumber" class="inputForm" placeholder="+38 (xxx) xxx xx xx" name="phoneNumber"
+                type="text" id="phoneNumber">
+        </div>
+        <div class="group">
+            <input formControlName="email" class="inputForm" placeholder="*Ваш email" name="email" type="text"
+                id="email">
+        </div>
+        <div class="punkts-menu">
+            <div class="num">2.</div>
+            <div class="label">Адреса</div>
+        </div>
+        <div class="group">
+            <button type="button" id="butAddress" (click)="addAddress()">Додати адресу</button>
+            <button (click)="saveChange()"  id="butLogin" type="submit">Зберегти зміни</button>
+        </div>
+        <div class="group">
+            <button (click)="logout()" id="exit">Вихід</button>
+        </div>
+    </form>
+</div>

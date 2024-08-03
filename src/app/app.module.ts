@@ -26,6 +26,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { ProductComponent } from './product/product.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
+import { AuthdialogComponent } from './components/authdialog/authdialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CabinetComponent } from './cabinet/cabinet.component';
+import { UserInfoComponent } from './cabinet/user-info/user-info.component';
+import { HistoryOfOrderComponent } from './cabinet/history-of-order/history-of-order.component';
+import { PasswordComponent } from './cabinet/password/password.component';  // Import MatDialogModule
 
 @NgModule({
   declarations: [
@@ -46,6 +54,11 @@ import { ProductInfoComponent } from './product/product-info/product-info.compon
     AdminProductComponent,
     ProductComponent,
     ProductInfoComponent,
+    AuthdialogComponent,
+    CabinetComponent,
+    UserInfoComponent,
+    HistoryOfOrderComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +71,9 @@ import { ProductInfoComponent } from './product/product-info/product-info.compon
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule  // Add MatDialogModule to imports
   ],
   providers: [],
   bootstrap: [AppComponent]

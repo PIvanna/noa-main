@@ -15,6 +15,10 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { ProductComponent } from './product/product.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
+import { CabinetComponent } from './cabinet/cabinet.component';
+import { UserInfoComponent } from './cabinet/user-info/user-info.component';
+import { HistoryOfOrderComponent } from './cabinet/history-of-order/history-of-order.component';
+import { PasswordComponent } from './cabinet/password/password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +30,13 @@ const routes: Routes = [
   { path: 'donatymo', component: DonatymoComponent },
   { path: 'oferta', component: OfertaComponent },
   { path: 'auth', component: AuthorizationComponent },
+  {
+    path: 'cabinet', component: CabinetComponent, children: [
+      { path: 'user-info', component: UserInfoComponent },
+      { path: 'history-order', component: HistoryOfOrderComponent },
+      { path: 'password', component: PasswordComponent }
+    ]
+  },
   {
     path: 'admin', component: AdminComponent, children: [
       { path: 'category', component: AdminCategoryComponent },

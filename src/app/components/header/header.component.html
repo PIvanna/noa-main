@@ -23,9 +23,13 @@
       </ul>
       <div class="left-part">
         <div class="favorite"></div>
-        <div class="register">
+        <div class="register" (click)="openLoginDialog()" *ngIf="!isLogin">
+          <div class="user"  ></div>
+          <p class="register-p" >Вхід | Реєстрація</p>
+        </div>
+        <div class="register" [routerLink]="[ '/admin' ]"  *ngIf="isLogin">
           <div class="user"></div>
-          <p class="register-p">Вхід | Реєстрація</p>
+          <p class="register-p"   >{{ name }}</p>
         </div>
         <div class="basket">
           <div class="basket-img"></div>

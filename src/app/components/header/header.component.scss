@@ -121,7 +121,7 @@
 
         .register {
           @include box(160px, 22px);
-          @include flex-row(flex, row, space-between, center);
+          @include flex-row(flex, row, start, center);
           cursor: pointer;
 
           &:hover .register-p {
@@ -138,6 +138,7 @@
             font-weight: 500;
             font-family: sans-serif;
             transition: 0.5s color;
+            margin-left: 10px;
           }
         }
 
