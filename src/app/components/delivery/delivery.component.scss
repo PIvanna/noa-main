@@ -1,0 +1,197 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins.scss";
+@import "../../shared/styles/variables.scss";
+
+
+.form {
+    position: relative;
+    width: 750px;
+    min-height: 484px;
+    padding: 80px 80px 0;
+    border-radius: 5px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpattern.png?alt=media&token=2d68ae9d-df78-46a7-9287-80e5a0cf9598");
+        background-size: auto;
+        opacity: 0.05;
+        z-index: 3;
+    }
+
+    .title {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    .sub-title {
+        width: 100%;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-top: 5px;
+        color: #2D7D7D;
+    }
+
+    .buttons {
+        width: 100%;
+        height: 70px;
+        @include flex-row(flex, row, space-between, center);
+        position: relative;
+        z-index: 4;
+
+        .but-delivery {
+            width: 267px;
+            height: 70px;
+            border-radius: 6px;
+            @include flex-row(flex, row, center, center);
+            background-color: white;
+            margin-top: 30px;
+            cursor: pointer;
+
+            .delivery-image {
+                display: block;
+                width: 46px;
+                height: 46px;
+            }
+
+            .delivery-style {
+                font-size: 17px;
+                letter-spacing: 1px;
+                font-family: sans-serif;
+                margin-left: 20px;
+            }
+        }
+
+        .borderStatus {
+            border: 1px solid #2D7D7D;
+        }
+    }
+
+
+    .wrapper {
+        @include flex-row(flex, row, space-between, center);
+        position: relative;
+        z-index: 4;
+        width: 100%;
+        margin-top: 50px;
+
+
+
+        form {
+           
+            width: 100%;
+            .wrapper-form {
+                @include flex-row(flex, row, space-between, center);
+                width: 100%;
+
+                select {
+                    width: 163px;
+                    background-color: white;
+                    color: #000;
+                    font-weight: 500;
+                    border-radius: 3px;
+                    border: 2px solid rgb(0 0 0 / 12%);
+                    height: 53px;
+                    outline: none;
+                    padding: 10px;
+                    letter-spacing: 1px;
+
+                    option {
+                        width: 163px;
+                        background-color: white;
+                        color: #000;
+                        font-weight: 400;
+                        border-radius: 3px;
+                        border: 2px solid rgb(0 0 0 / 12%);
+                        height: 53px;
+                        outline: none;
+                        padding: 10px;
+                        letter-spacing: 1px;
+
+                        &:hover {
+                            background-color: #f5f5f5;
+                        }
+                    }
+                }
+
+                #mySelectSelf {
+                    width: 100%;
+                }
+
+                .adress-input {
+                    width: 200px;
+                    background-color: white;
+                    color: #000;
+                    font-weight: 500;
+                    border-radius: 3px;
+                    border: 2px solid rgb(0 0 0 / 12%);
+                    height: 53px;
+                    outline: none;
+                    padding: 10px;
+                    letter-spacing: 1px;
+
+                    &::placeholder {
+                        color: black;
+                        font-style: 14px;
+                        font-family: sans-serif;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .house-input {
+                    width: 120px;
+                    background-color: white;
+                    color: #000;
+                    font-weight: 500;
+                    border-radius: 3px;
+                    border: 2px solid rgb(0 0 0 / 12%);
+                    height: 53px;
+                    outline: none;
+                    padding: 10px;
+                    letter-spacing: 1px;
+
+                    &::placeholder {
+                        color: #000;
+                        font-style: 14px;
+                        font-family: sans-serif;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+
+
+            #butSubmit{
+                width: 100%;
+                height: 60px;
+                margin-top: 60px;
+                color: white;
+                letter-spacing: 1px;
+                font-size: 16px;
+                font-family: sans-serif;
+                outline: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .enabled-button{
+                background-color: #2D7D7D;
+
+            }
+
+            .disabled-button{
+                background-color: #c5c5c5;
+
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,41 @@
+<ng-container>
+    <div class="form">
+        <div class="manage">
+            <h2 class="title">Кошик</h2>
+            <div class="buttons">
+                <div class="button-clear" (click)="clearBasket()">ОЧИСТИТИ КОШИК</div>
+                <div class="button-close" (click)="closeWindow()">
+                    <div class="line one"></div>
+                    <div class="line two"></div>
+                </div>
+            </div>
+        </div>
+        <div class="basket-wrapper" *ngIf="!basketEmpty">
+            <div class="basket-item" *ngFor="let product of basket">
+                <img class="basket-img" [src]="product.imagePath" alt="">
+                <div class="manageCount">
+                    <p class="basket-name">{{ product.name}}</p>
+                    <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>
+                    <input class="countProduct" type="text"
+                        [value]="product.count === null || product.count === 0 ? 1 : product.count" readonly
+                        style="width: 40px;">
+                    <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
+                </div>
+                <p class="basket-price">{{ product.count === null ? product.price : product.price * product.count }} грн
+                </p>
+                <div class="button-close" (click)="delete(product)">
+                    <div class="line one"></div>
+                    <div class="line two"></div>
+                </div>
+            </div>
+        </div>
+        <div class="basket-empty" *ngIf="basketEmpty">
+            <p class="basket-empty-p">Кошик порожній</p>
+            <button class="goToMenu" mat-dialog-close [routerLink]="[ '/' ]" > Перейти до каталогу</button>
+        </div>
+        <div class="basket-option">
+            <p class="basket-option-price">Сума: <b>{{total}}</b> грн</p>
+            <button type="button" mat-dialog-close [routerLink] = "[ '/order' ]" class="orderBut">Оформити замовлення</button>
+        </div>
+    </div>
+</ng-container>

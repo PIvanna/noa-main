@@ -1,0 +1,52 @@
+<ng-container>
+    <div class="form">
+      <h2 class="title">Привіт!</h2>
+      <h3 class="sub-title">обери тип замовлення та вкажи адресу</h3>
+      <div class="buttons">
+        <div class="but-delivery" [ngClass]="{'borderStatus': deliveryStatus}" (click)="deliveryOpen()">
+          <img class="delivery-image" src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fself_delivery_noa.svg?alt=media&token=c6c4d9ee-9380-4923-80f9-c70d5ccd2cc8" alt="">
+          <p class="delivery-style">Доставка</p>
+        </div>
+        <div class="but-delivery" [ngClass]="{'borderStatus': selfStatus}" (click)="selfOpen()">
+          <img src="https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fcouerir_delivery_noa.svg?alt=media&token=107ad53f-8465-4d46-8fef-0ad08aa27e9e" alt="" class="delivery-image">
+          <p class="delivery-style">Самовивіз</p>
+        </div>
+      </div>
+      <div class="wrapper" *ngIf="deliveryStatus">
+        <form [formGroup]="adressForm">
+          <div class="wrapper-form">
+            <select id="mySelect" formControlName="city">
+              <option value="Львів">Львів</option>
+              <option value="Брюховичі">Брюховичі</option>
+              <option value="Дубляни">Дубляни</option>
+              <option value="Зимна Вода">Зимна Вода</option>
+              <option value="Зубра">Зубра</option>
+              <option value="Ков'ярі">Ков'ярі</option>
+              <option value="Лапаївка">Лапаївка</option>
+              <option value="Муроване">Муроване</option>
+            </select>
+            <input type="text" placeholder="*Адресна доставка" class="adress-input" formControlName="adress">
+            <input type="text" placeholder="*№ буд." class="house-input" formControlName="house">
+          </div>
+          <button [disabled]="adressForm.invalid" (click)="onSubmitDeliveryForm()" id="butSubmit" type="submit" [ngClass]="{'enabled-button': !adressForm.invalid, 'disabled-button': adressForm.invalid}">Підтвердити</button>
+        </form>
+      </div>
+      <div class="wrapper" *ngIf="selfStatus">
+        <form [formGroup]="selfForm">
+          <div class="wrapper-form">
+            <select id="mySelectSelf" formControlName="restaurant">
+              <option value="ТРЦ Victoria Gardens, Кульпарківська 226А">ТРЦ Victoria Gardens, Кульпарківська 226А</option>
+              <option value="Староєврейська 4">Староєврейська 4</option>
+              <option value="Зимна Вода">Зимна Вода</option>
+              <option value="Зубра">Зубра</option>
+              <option value="Крива Липа 8">Крива Липа 8</option>
+              <option value="ТРЦ Spartak, Мазепи 1Б">ТРЦ Spartak, Мазепи 1Б</option>
+              <option value="ТРЦ King Cross, Стрийська, 30">ТРЦ King Cross, Стрийська, 30</option>
+            </select>
+          </div>
+          <button (click)="onSubmitSelfForm()" [disabled]="selfForm.invalid" id="butSubmit" type="submit" [ngClass]="{'enabled-button': !selfForm.invalid, 'disabled-button': selfForm.invalid}">Підтвердити</button>
+        </form>
+      </div>
+    </div>
+  </ng-container>
+  

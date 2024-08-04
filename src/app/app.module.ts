@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,23 +19,28 @@ import { OfertaComponent } from './oferta/oferta.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { ProductComponent } from './product/product.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { AuthdialogComponent } from './components/authdialog/authdialog.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatDialogModule } from '@angular/material/dialog';
 import { CabinetComponent } from './cabinet/cabinet.component';
 import { UserInfoComponent } from './cabinet/user-info/user-info.component';
 import { HistoryOfOrderComponent } from './cabinet/history-of-order/history-of-order.component';
-import { PasswordComponent } from './cabinet/password/password.component';  // Import MatDialogModule
+import { PasswordComponent } from './cabinet/password/password.component';
+import { MenuComponent } from './components/menu/menu.component'; // Import MenuComponent
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { BasketComponent } from './components/basket/basket.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +65,11 @@ import { PasswordComponent } from './cabinet/password/password.component';  // I
     CabinetComponent,
     UserInfoComponent,
     HistoryOfOrderComponent,
-    PasswordComponent
+    PasswordComponent,
+    MenuComponent,
+    MainMenuComponent,
+    BasketComponent,
+    DeliveryComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +84,7 @@ import { PasswordComponent } from './cabinet/password/password.component';  // I
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule  // Add MatDialogModule to imports
+    MatDialogModule // Import MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

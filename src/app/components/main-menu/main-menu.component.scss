@@ -1,0 +1,42 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins.scss";
+@import "../../shared/styles/variables.scss";
+
+
+.form {
+    position: relative;
+    width: 380px;
+    height: 100vh;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpattern.png?alt=media&token=2d68ae9d-df78-46a7-9287-80e5a0cf9598");
+        background-size: auto;
+        opacity: 0.05;
+        z-index: 3;
+    }
+
+
+    .list {
+        position: relative;
+        width: 350px;
+        height: 390px;
+        padding: 80px 50px;
+        z-index: 4;
+        .list-punkt {
+            width: 100%;
+            height: 60px;
+            color: black;
+            list-style: none;
+            font-size: 16px;
+            font-family: sans-serif;
+            letter-spacing: 2px;
+            line-height: 60px;
+        }
+    }
+
+}

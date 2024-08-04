@@ -26,7 +26,7 @@
                     </div>
                     <p class="product-price">{{ currentProduct.price}} грн</p>
                 </div>
-                <button class="btnOrder" type="button">Додати в кошик</button>
+                <button class="btnOrder" (click)="addToBasket(currentProduct)" type="button">Додати в кошик</button>
             </div>
         </div>
         <h2 class="title">Інші</h2>

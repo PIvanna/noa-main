@@ -13,7 +13,7 @@
                 <div class="image-container" > 
                     <img [src]="category.imagePath"  class="image-category" alt="{{ category.name }}">
                 </div>
-                <h3 class="category-name">{{ category.name }}</h3>
+                <h3 class="category-name">{{ category.name }}</h3> 
             </div>
         </div>
         <h2 class="title">СТРАВИ, ЯКІ ВАМ СПОДОБАЮТЬСЯ</h2>
@@ -21,11 +21,11 @@
             <div class="slider-container">
                 <div class="slider" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)'}">
                     <div class="slider-item" *ngFor="let product of userProducts">
-                        <div class="image-container-product">
+                        <div class="image-container-product" [routerLink]="[ '/product/'+product.category.path, product.id ] ">
                             <img [src]="product.imagePath" class="image-product" alt="{{ product.name }}">
                         </div>
-                        <div class="nameOfProduct">
-                            <h3 class="product-name">{{ product.name }}</h3>
+                        <div class="nameOfProduct" >
+                            <h3 class="product-name" [routerLink]="[ '/product/'+product.category.path, product.id ] ">{{ product.name }}</h3>
                             <p class="product-price">{{ product.price }}</p>
                         </div>
                         <p class="product-description">{{ product.description | slice:0:80}} <span *ngIf="product.description.length > 80">...</span></p>
@@ -37,7 +37,7 @@
                                     style="width: 40px;">
                                 <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
                             </div>
-                            <button class="btnOrder" type="button">Замовити</button>
+                            <button class="btnOrder" type="button" (click)="addToBasket(product)">Замовити</button>
                         </div>
                     </div>
                 </div>
