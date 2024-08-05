@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
 import { AccountService } from 'src/app/shared/services/account/account.service';
@@ -9,7 +9,7 @@ import { OrderService } from 'src/app/shared/services/order/order.service';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss']
 })
-export class BasketComponent {
+export class BasketComponent implements OnInit {
   public basketEmpty = true;
   public total = 0;
   public basket: Array<IProductResponse> = [];
@@ -26,33 +26,35 @@ export class BasketComponent {
   }
 
   loadBasket(): void {
-    if (localStorage.length > 0 && localStorage.getItem('basket')) {
-      this.basket = JSON.parse(localStorage.getItem('basket') as string);
-      if (this.basket.length > 0) {
-        this.basketEmpty = false;
-      } else {
-        this.dialogRef.close();
-      }
+    const basketFromStorage = localStorage.getItem('basket');
+    if (basketFromStorage) {
+      this.basket = JSON.parse(basketFromStorage);
+      this.basketEmpty = this.basket.length === 0;
+      this.getTotalPrice();
+    } else {
+      this.basketEmpty = true;
     }
-    this.getTotalPrice();
   }
 
   getTotalPrice(): void {
+    console.log('Calculating total price...');
+    
     this.total = this.basket
-      .reduce((total: number, prod: IProductResponse) => total + prod.count * prod.price, 0);
+      .reduce((total: number, prod: IProductResponse) => total + (prod.count || 0) * (prod.price || 0), 0);
+    console.log('Total price:', this.total);
   }
-
+  
   updateBasket(): void {
     this.orderService.changeBasket.subscribe(() => {
       this.loadBasket();
     });
   }
 
-  productCount(product: IProductResponse, value: boolean): void {
-    if (value) {
-      ++product.count;
-    } else if (!value && product.count > 1) {
-      --product.count;
+  productCount(product: IProductResponse, increment: boolean): void {
+    if (increment) {
+      product.count = (product.count || 1) + 1;
+    } else if (product.count && product.count > 1) {
+      product.count -= 1;
     }
     this.updateLocalStorage();
   }
@@ -60,28 +62,23 @@ export class BasketComponent {
   updateLocalStorage(): void {
     localStorage.setItem('basket', JSON.stringify(this.basket));
     this.getTotalPrice();
-    this.orderService.notifyChangeBasket(); // Сповіщення про зміну кошика
+    this.orderService.notifyChangeBasket(); // Notify basket change
   }
 
   delete(product: IProductResponse) {
-    const index = this.basket.findIndex(item => item.id === product.id);
-    if (index !== -1) {
-      this.basket.splice(index, 1);
-      this.updateLocalStorage();
-      this.updateBasket();
-    }
-    if (this.basket.length == 0) {
-      this.basketEmpty = true;
-    }
+    this.basket = this.basket.filter(item => item.id !== product.id);
+    this.updateLocalStorage();
+    this.basketEmpty = this.basket.length === 0;
   }
 
   clearBasket(): void {
     this.basket = [];
     this.basketEmpty = true;
-    this.updateLocalStorage();
     localStorage.removeItem('basket');
     this.orderService.notifyChangeBasket();
+    this.getTotalPrice();
     this.dialogRef.close();
+    window.location.reload();
   }
 
   closeWindow() {

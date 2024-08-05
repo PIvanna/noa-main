@@ -41,6 +41,7 @@ import { environment } from '../environments/environment';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { DeliveryComponent } from './components/delivery/delivery.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { DeliveryComponent } from './components/delivery/delivery.component';
     MainMenuComponent,
     BasketComponent,
     DeliveryComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,8 +27,12 @@
           <div class="user"></div>
           <p class="register-p">Вхід | Реєстрація</p>
         </div>
-        <div class="register" [routerLink]="['/admin']" *ngIf="isLogin">
-          <div class="user"></div>
+        <div class="register" *ngIf="loginUrl == 'cabinet/user-info'" [routerLink]="['/cabinet/user-info']"  >
+          <div class="user"></div> 
+          <p class="register-p">{{ name }}</p>
+        </div>
+        <div class="register" *ngIf="loginUrl == 'admin'" [routerLink]="['/admin']"  >
+          <div class="user"></div> 
           <p class="register-p">{{ name }}</p>
         </div>
         <div class="basket" (click)="openBasketDialog()">

@@ -64,8 +64,15 @@ export class DeliveryComponent {
       console.log('Delivery data saved:', formData);
       this.dialogRef.close();
       window.location.reload();
+
+
     }
+
+    
   }
+
+  
+  
 
   onSubmitSelfForm(): void {
     if (this.selfForm.valid) {
@@ -74,6 +81,7 @@ export class DeliveryComponent {
       console.log('Self-pickup data saved:', formData);
       this.dialogRef.close();
       window.location.reload();
+
     }
   }
 }

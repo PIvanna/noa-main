@@ -118,6 +118,7 @@ export class AuthdialogComponent {
     try {
       const credential = await createUserWithEmailAndPassword(this.auth, email, password);
       const user = {
+        uid: credential.user.uid,
         email: credential.user.email,
         firstName: this.registerData.firstName,
         lastName: this.registerData.lastName,

@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="backgroundFon">
+    </div>
+    <div class="wrapper">
+        <h1 id="title">Оформлення замовлення</h1>
+        <div class="wrapper-flex">
+            <div class="wrapper-form">
+                <form id="formPersonal" [formGroup]="personalForm">
+                    <div class="punkts-menu">
+                        <div class="num">1.</div>
+                        <div class="label">Особисті дані</div>
+                    </div>
+                    <div class="group">
+                        <input formControlName="firstName" class="input-small" name="name" placeholder="*Ваше ім'я"
+                            type="text" id="name">
+                        <input type="text" formControlName="lastName" class="input-small" name="surname"
+                            placeholder="*Ваше прізвище">
+                    </div>
+                    <div class="group">
+                        <input formControlName="phoneNumber" class="inputForm" placeholder="+38 (xxx) xxx xx xx"
+                            name="phoneNumber" type="text" id="phoneNumber">
+                    </div>
+                    <div class="group">
+                        <input formControlName="email" class="inputForm" placeholder="*Ваш email" name="email"
+                            type="text" id="email">
+                    </div>
+                </form>
+                <form id="formPersonal" [formGroup]="addressForm" *ngIf="formType == 'Доставка'">
+                    <div class="punkts-menu">
+                        <div class="num">2.</div>
+                        <div class="label">Адреса</div>
+                    </div>
+                    <div class="group">
+                        <div>
+                            <input type="checkbox" checked disabled formControlNamt="type" id="type">
+                            <label for="type">{{formType}}</label>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <select id="mySelect" class="inputForm" formControlName="city">
+                            <option value="Львів">Львів</option>
+                            <option value="Брюховичі">Брюховичі</option>
+                            <option value="Дубляни">Дубляни</option>
+                            <option value="Зимна Вода">Зимна Вода</option>
+                            <option value="Зубра">Зубра</option>
+                            <option value="Ков'ярі">Ков'ярі</option>
+                            <option value="Лапаївка">Лапаївка</option>
+                            <option value="Муроване">Муроване</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <input type="text" class="inputForm" placeholder="*Адресна доставка" formControlName="adress">
+                    </div>
+                    <div class="group">
+                        <input type="text" class="inputForm" placeholder="*№ буд." formControlName="house">
+                    </div>
+                </form>
+                <form id="formPersonal" [formGroup]="selfForm" *ngIf="formType == 'Самовивіз'">
+                    <div class="punkts-menu">
+                        <div class="num">2.</div>
+                        <div class="label">Адреса</div>
+                    </div>
+                    <div class="group">
+                        <div>
+                            <input type="checkbox" checked disabled formControlNamt="type" id="type">
+                            <label for="type">{{formType}}</label>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div>
+                            <select id="mySelectSelf" class="inputForm" formControlName="restaurant">
+                                <option value="ТРЦ Victoria Gardens, Кульпарківська 226А">ТРЦ Victoria Gardens,
+                                    Кульпарківська
+                                    226А</option>
+                                <option value="Староєврейська 4">Староєврейська 4</option>
+                                <option value="Зимна Вода">Зимна Вода</option>
+                                <option value="Зубра">Зубра</option>
+                                <option value="Крива Липа 8">Крива Липа 8</option>
+                                <option value="ТРЦ Spartak, Мазепи 1Б">ТРЦ Spartak, Мазепи 1Б</option>
+                                <option value="ТРЦ King Cross, Стрийська, 30">ТРЦ King Cross, Стрийська, 30</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="basket-wrapper" *ngIf="!basketEmpty">
+                <p class="title-order">Ваше замовлення</p>
+                <div class="basket-item" *ngFor="let product of basket">
+                    <img class="basket-img" [src]="product.imagePath" alt="">
+                    <div class="manageCount">
+                        <p class="basket-name">{{ product.name}}</p>
+                        <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>
+                        <input class="countProduct" type="text"
+                            [value]="product.count === null || product.count === 0 ? 1 : product.count" readonly
+                            style="width: 40px;">
+                        <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
+                    </div>
+                    <p class="basket-price">{{ product.count === null ? product.price : product.price * product.count }}
+                        грн
+                    </p>
+                    <div class="button-close" (click)="delete(product)">
+                        <div class="line one"></div>
+                        <div class="line two"></div>
+                    </div>
+                </div>
+                <div class="basket-option">
+                    <div class="price">
+                        <p class="basket-option-price">Сума:</p>
+                        <p class="basket-option-price"><b>{{total}}</b> грн</p>
+                    </div>
+                    <button  type="button" (click)="orderProduct()" class="orderBut">Оформити
+                        замовлення</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

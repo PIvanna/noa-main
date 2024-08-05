@@ -111,7 +111,6 @@ export class HeaderComponent {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.panelClass = 'delivery-dialog';
     dialogConfig.disableClose = true; // Діалог не закривається при кліку за межами
-
     this.dialog.open(DeliveryComponent, dialogConfig);
 
   }

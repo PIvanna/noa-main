@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUserInfo } from 'src/app/shared/interfaces/user-info/user-info.interface';
 import { AccountService } from 'src/app/shared/services/account/account.service';
+import { OrderService } from 'src/app/shared/services/order/order.service';
 
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss']
 })
-export class UserInfoComponent {
+export class UserInfoComponent { 
   public personalForm!: FormGroup;
   public currentUser: IUserInfo = {
     firstName: '',
@@ -17,12 +18,15 @@ export class UserInfoComponent {
     phoneNumber: '',
     email: '', 
     address: [],
-    orders: []
+    orders: [],
+    uid: ''
   };
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private orderService: OrderService,
+
   ) {
     this.login();
   }
@@ -54,7 +58,6 @@ export class UserInfoComponent {
   }
 
   saveChange(): void {
-    console.log('h9');
 
     if (this.personalForm.valid) {
       const updatedUserInfo: IUserInfo = this.personalForm.value;
@@ -83,7 +86,18 @@ export class UserInfoComponent {
   }
 
   logout(): void {
+    if (localStorage.getItem('deliveryData')) {
+      localStorage.removeItem('deliveryData');
+    }
+    if (localStorage.getItem('selfData')) {
+      localStorage.removeItem('selfData');
+    }
     this.accountService.logout();
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
+    this.orderService.notifyChangeBasket(); 
+
   }
+  
+  
+  
 }

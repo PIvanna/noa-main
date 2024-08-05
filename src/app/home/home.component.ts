@@ -154,6 +154,8 @@ export class HomeComponent implements OnDestroy {
     localStorage.setItem('basket', JSON.stringify(basket));
     product.count = 1;
     this.orderService.changeBasket.next(true);
+
+    console.log('hi')
   }
 
 }

@@ -10,14 +10,19 @@
         <div class="orders-container" *ngIf="orders.length > 0">
             <div class="table-row" *ngFor="let order of orders; let i = index">
                 <div class="table-punkt number">{{ i + 1 }}</div>
-                <div class="table-punkt date"></div>
-                <div class="table-punkt address"></div>
-                <div class="table-punkt suma"></div>
-                <div class="table-punkt status"></div>
+                <div class="table-punkt date">{{ formatDate(order.date) }}</div>
+                <div class="table-punkt address">
+                    {{ order.address.type }}<br>
+                    Місто: {{ order.address.city }}<br>
+                    Адреса: {{ order.address.adress }}<br>
+                    Будинок: {{ order.address.house }}
+                </div>
+                <div class="table-punkt suma">{{ order.total}}</div>
+                <div class="table-punkt status">{{ order.status }}</div>
             </div>
-        </div>
+        </div> 
         <div class="table-row" *ngIf="orders.length == 0">
-            <p class="message">Поки що ви не зробили жодного замовлення <span class="message-span" [routerLink]="['']">перейти в каталог</span></p>
-        </div>
+            <p class="message">Поки що ви не зробили жодного замовлення <span class="message-span" [routerLink]="['']">перейти в каталог</span></p>        </div>
     </div>
 </div>
+

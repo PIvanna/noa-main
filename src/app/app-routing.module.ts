@@ -19,6 +19,7 @@ import { CabinetComponent } from './cabinet/cabinet.component';
 import { UserInfoComponent } from './cabinet/user-info/user-info.component';
 import { HistoryOfOrderComponent } from './cabinet/history-of-order/history-of-order.component';
 import { PasswordComponent } from './cabinet/password/password.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'donatymo', component: DonatymoComponent },
   { path: 'oferta', component: OfertaComponent },
   { path: 'auth', component: AuthorizationComponent },
+  { path: 'order', component: OrderComponent },
   {
     path: 'cabinet', component: CabinetComponent, children: [
       { path: 'user-info', component: UserInfoComponent },

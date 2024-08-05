@@ -61,6 +61,8 @@ export class AdminProductComponent {
     });
   }
 
+  
+
   loadCategories(): void {
     this.categoryService.getAllFirebase().subscribe(data => {
       this.adminCategories = data as ICategoryResponse[];
@@ -70,7 +72,7 @@ export class AdminProductComponent {
         });
       }
     })
-}
+  }
 
   loadProduct(): void {
     this.productService.getAllFirebase().subscribe(data => {
@@ -79,26 +81,32 @@ export class AdminProductComponent {
   }
 
   addProduct(): void {
-    if(this.editStatus){
-      this.productService.updateFirebase(this.productForm.value, this.currentProductId as string).then(() => {
+    const productData = this.productForm.value;
+    // Ensure count is set to 1 if it is null or undefined
+    if (productData.count === null || productData.count === undefined) {
+      productData.count = 1;
+    }
+
+    if (this.editStatus) {
+      this.productService.updateFirebase(productData, this.currentProductId as string).then(() => {
         this.loadProduct();
         this.selectedFileName = "";
         this.bShowForm = false;
         this.editStatus = false;
-      })
+      });
     } else {
-      this.productService.createFirebase(this.productForm.value).then(() => {
+      this.productService.createFirebase(productData).then(() => {
         this.loadProduct();
         this.selectedFileName = "";
         this.bShowForm = false;
         this.editStatus = false;
-      })
+      });
     }
     this.isUploaded = false;
-
     this.productForm.reset();
     this.loadCategories();
-}
+  }
+
 
   editProduct(product: IProductResponse): void {
     this.productForm.patchValue({
@@ -109,6 +117,7 @@ export class AdminProductComponent {
       weight: product.weight,
       price: product.price,
       imagePath: product.imagePath,
+      count: [1]
     });
     this.isUploaded = true;
     this.editStatus = true;
