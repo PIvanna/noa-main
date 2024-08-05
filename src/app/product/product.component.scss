@@ -37,6 +37,7 @@
             border-radius: 6px;
             flex-wrap: wrap;
             padding: 20px;
+            margin: 50px auto;
 
             .punkt-menu {
                 padding: 15px 23px;
@@ -57,14 +58,18 @@
             }
         }
 
+        .custom-select {
+            display: none;
+        }
+
         .products-list {
-            margin-top: 50px;
+            margin: 50px auto 0;
             width: 1355px;
             @include flex-row(flex, row, start, center);
             flex-wrap: wrap;
+
             .product {
 
-                flex: 1 1 auto;
                 width: 310px;
                 margin-right: 25px;
                 flex: 0 0 auto;
@@ -182,6 +187,214 @@
                 }
 
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1415px) {
+    .container {
+        .wrapper {
+            width: 1142px;
+
+            .menu {
+                width: 1142px; // Розмір меню
+            }
+
+            .products-list {
+                width: 1142px; // Розмір списку продуктів
+                margin: auto;
+
+                .product {
+                    width: 250px;
+                    margin-right: 35px;
+
+                    .image-container-product {
+                        height: 200px;
+                    }
+
+                    .nameOfProduct {
+
+                        .product-name {
+                            font-size: 20px;
+
+                        }
+                    }
+
+                    .product-description {
+                        font-size: 15px;
+                    }
+
+                    .buttons {
+
+                        .btnOrder {
+                            width: 113px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .container {
+        .wrapper {
+            width: 930px;
+
+            .menu {
+                width: 930px; // Розмір меню
+            }
+
+            .products-list {
+                width: 930px; // Розмір списку продуктів
+                margin: auto;
+
+                .product {
+                    width: 280px;
+                    margin-right: 30px;
+
+                    .image-container-product {
+                        height: 210px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 996px) {
+    .container {
+        .wrapper {
+            width: 710px;
+
+            .menu {
+                width: 710px; // Розмір меню
+            }
+
+            .products-list {
+                width: 730px; // Розмір списку продуктів
+                margin: auto;
+
+                .product {
+                    width: 330px;
+
+                    .image-container-product {
+                        height: 250px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 796px) {
+    .container {
+        .wrapper {
+            width: 520px;
+
+            .menu {
+                width: 510px; // Розмір меню
+                display: none;
+            }
+
+            .custom-select {
+                position: relative;
+                width: 100%;
+                margin: 50px auto;
+                display: block;
+
+                select {
+                    width: 100%;
+                    height: 40px;
+                    color: #C5C5C5;
+                    background-color: black;
+                    border-radius: 6px;
+                    padding: 10px;
+                }
+            }
+
+
+
+            .products-list {
+                width: 520px; // Розмір списку продуктів
+                margin: auto;
+
+                .product {
+                    width: 230px;
+
+                    .image-container-product {
+                        height: 180px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 596px) {
+    .container {
+        .wrapper {
+            width: 90%;
+
+            .menu {
+                width: 90%; // Розмір меню
+            }
+
+            .products-list {
+                width: 90%; // Розмір списку продуктів
+                margin: auto;
+
+                .product {
+                    width: 100%;
+                    margin-bottom: 40px;
+
+                    .image-container-product {
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        .wrapper {
+
+            #title {
+                font-size: 28px;
+            }
+
+
+
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container {
+        .wrapper {
+
+            #title {
+                font-size: 26px;
+            }
+
+
+        }
+    }
+}
+
+@media screen and (max-width: 368px) {
+    .container {
+        .wrapper {
+            #title {
+                font-size: 24px;
+            }
+
+
         }
     }
 }

@@ -51,6 +51,8 @@ export class ProductInfoComponent {
     });
   }
 
+  
+
   productCount(product: IProductResponse, value: boolean): void {
     if (value) {
       ++product.count;

@@ -3,18 +3,45 @@
     </div>
     <div class="wrapper">
         <div class="menu">
-            <div class="punkt-menu" [routerLink]="['/product', 'breakfast']" routerLinkActive="route-active-admin">Сніданки до 18:00</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'startery']" routerLinkActive="route-active-admin">Стартери</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'rameny']" routerLinkActive="route-active-admin">Рамен</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'asian-wok']" routerLinkActive="route-active-admin">ASIAN WOK</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'asian-poke']" routerLinkActive="route-active-admin">ASIAN POCK</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'sushi-burger']" routerLinkActive="route-active-admin">Суші-бургери</div>
+            <div class="punkt-menu" [routerLink]="['/product', 'breakfast']" routerLinkActive="route-active-admin">
+                Сніданки до 18:00</div>
+            <div class="punkt-menu" [routerLink]="['/product', 'startery']" routerLinkActive="route-active-admin">
+                Стартери</div>
+            <div class="punkt-menu" [routerLink]="['/product', 'rameny']" routerLinkActive="route-active-admin">Рамен
+            </div>
+            <div class="punkt-menu" [routerLink]="['/product', 'asian-wok']" routerLinkActive="route-active-admin">ASIAN
+                WOK</div>
+            <div class="punkt-menu" [routerLink]="['/product', 'asian-poke']" routerLinkActive="route-active-admin">
+                ASIAN POCK</div>
+            <div class="punkt-menu" [routerLink]="['/product', 'sushi-burger']" routerLinkActive="route-active-admin">
+                Суші-бургери</div>
             <div class="punkt-menu" [routerLink]="['/product', 'roly']" routerLinkActive="route-active-admin">Роли</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'sushi-setu']" routerLinkActive="route-active-admin">Сети</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'deserty']" routerLinkActive="route-active-admin">Десерти</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'napoyi']" routerLinkActive="route-active-admin">Напої</div>
-            <div class="punkt-menu" [routerLink]="['/product', 'noa-shop']" routerLinkActive="route-active-admin">NOA Shop</div>
-          </div>
+            <div class="punkt-menu" [routerLink]="['/product', 'sushi-setu']" routerLinkActive="route-active-admin">Сети
+            </div>
+            <div class="punkt-menu" [routerLink]="['/product', 'deserty']" routerLinkActive="route-active-admin">Десерти
+            </div>
+            <div class="punkt-menu" [routerLink]="['/product', 'napoyi']" routerLinkActive="route-active-admin">Напої
+            </div>
+            <div class="punkt-menu" [routerLink]="['/product', 'noa-shop']" routerLinkActive="route-active-admin">NOA
+                Shop</div>
+        </div>
+        <div class="custom-select">
+            <select (change)="onSelectChange($event)" #selectRef>
+                <option value="/product/breakfast">Сніданки до 18:00</option>
+                <option value="/product/startery">Стартери</option>
+                <option value="/product/rameny">Рамен</option>
+                <option value="/product/asian-wok">ASIAN WOK</option>
+                <option value="/product/asian-poke">ASIAN POCK</option>
+                <option value="/product/sushi-burger">Суші-бургери</option>
+                <option value="/product/roly">Роли</option>
+                <option value="/product/sushi-setu">Сети</option>
+                <option value="/product/deserty">Десерти</option>
+                <option value="/product/napoyi">Напої</option>
+                <option value="/product/noa-shop">NOA Shop</option>
+            </select>
+        </div>
+        
+        
         <div class="products-list">
             <div class="product" *ngFor="let product of userProducts">
                 <div class="image-container-product" [routerLink]="[ '/product/'+product.category.path, product.id ] ">
@@ -24,7 +51,8 @@
                     <h3 class="product-name">{{ product.name }}</h3>
                     <p class="product-price">{{ product.price }}</p>
                 </div>
-                <p class="product-description">{{ product.description | slice:0:80}} <span *ngIf="product.description.length > 80">...</span></p>
+                <p class="product-description">{{ product.description | slice:0:80}} <span
+                        *ngIf="product.description.length > 80">...</span></p>
                 <div class="buttons">
                     <div class="manageCount">
                         <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>

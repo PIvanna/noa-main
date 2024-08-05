@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IProductResponse } from '../shared/interfaces/product/product.interface';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../shared/services/product/product.service';
@@ -25,7 +25,10 @@ export class ProductComponent {
         this.loadProducts();
       }
     })
+
   }
+
+ 
 
 
   loadProducts(): void {
@@ -63,5 +66,41 @@ export class ProductComponent {
     product.count = 1;
     this.orderService.changeBasket.next(true);
   }
+  @ViewChild('selectRef') selectRef!: ElementRef<HTMLSelectElement>;
+
+  
+
+  
+  ngAfterViewInit(): void {
+    // Get the current URL path
+    const currentPath = this.router.url;
+
+    // Get the select element
+    const selectElement = this.selectRef.nativeElement;
+
+    // Find and select the option that matches the current URL
+    for (let i = 0; i < selectElement.options.length; i++) {
+      if (selectElement.options[i].value === currentPath) {
+        selectElement.selectedIndex = i;
+        break;
+      }
+    }
+  }
+
+  onSelectChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedValue = selectElement.value;
+    const selectedText = selectElement.options[selectElement.selectedIndex].text;
+
+    if (selectElement.textContent) {
+      selectElement.title = selectedText;
+    }
+
+    this.router.navigate([selectedValue]);
+    console.log(selectElement.title);
+    console.log('Selected Text:', selectedText);
+  }
+
+  
 
 }
