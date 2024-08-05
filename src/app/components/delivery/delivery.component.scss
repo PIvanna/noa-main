@@ -195,3 +195,116 @@
     }
 
 }
+
+@media screen and (max-width: 1000px) {
+    .form{
+        width: 650px;
+        padding: 30px 30px 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .form{
+        width: 450px;
+        padding: 30px 10px 0;
+        height: 420px;
+        .buttons{
+            .but-delivery{
+                width: 200px;
+            }
+        }
+
+        .wrapper{
+            form{
+                .wrapper-form{
+                    flex-wrap: wrap;
+                    select{
+                        width: 100%;
+
+                        option{
+                            width: 100%;
+                        }
+                    }
+
+                    .adress-input{
+                        width: 100%;
+                        margin: 20px 0;
+                    }
+
+                    .house-input{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form{
+        width: 400px;
+        padding: 30px 10px 0;
+
+        .buttons{
+            .but-delivery{
+                width: 170px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .form{
+        width: 300px;
+        padding: 30px 10px 0;
+
+        .buttons{
+            .but-delivery{
+                width: 120px;
+
+                .delivery-image{
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .delivery-style{
+                    letter-spacing: 0;
+                    font-size: 15px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .form{
+        width: 200px;
+        padding: 30px 10px 0;
+        height: 300px;
+
+        .title{
+            font-size: 20px;
+        }
+
+        .sub-title{
+            font-size: 18px;
+        }
+
+        .buttons{
+            .but-delivery{
+                width: 80px;
+
+                .delivery-image{
+                    display: none;
+                }
+
+                .delivery-style{
+                    letter-spacing: 0;
+                    font-size: 15px;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}

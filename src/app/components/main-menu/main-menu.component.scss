@@ -40,3 +40,18 @@
     }
 
 }
+
+@media screen and (max-width: 450px) {
+    .form {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        background-color: white; // optional, to ensure the modal content is visible
+        z-index: 1000; // make sure it's on top of other content
+
+       
+    }
+}

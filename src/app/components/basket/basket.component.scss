@@ -2,7 +2,6 @@
 @import "../../shared/styles/mixins.scss";
 @import "../../shared/styles/variables.scss";
 
-
 .form {
     position: relative;
     width: 680px;
@@ -83,6 +82,7 @@
         margin-top: 10px;
         overflow-x: hidden;
         padding-bottom: 120px;
+
         .basket-item {
             width: 573px;
             height: 165px;
@@ -174,13 +174,14 @@
         border: 1px solid #2D7D7D;
         background-color: white;
         padding: 0 30px;
-        .basket-option-price    {
+
+        .basket-option-price {
             font-size: 18px;
             font-family: sans-serif;
             letter-spacing: 1px;
         }
 
-        .orderBut{
+        .orderBut {
             width: 280px;
             height: 60px;
             color: white;
@@ -195,14 +196,15 @@
         }
     }
 
-    .basket-empty{
+    .basket-empty {
         font-size: 18px;
         font-family: sans-serif;
         letter-spacing: 1px;
         margin-top: 50px;
         position: relative;
         z-index: 6;
-        .goToMenu{
+
+        .goToMenu {
             width: 280px;
             height: 60px;
             color: white;
@@ -219,3 +221,144 @@
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+    .form {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        background-color: white; // optional, to ensure the modal content is visible
+        z-index: 1000; // make sure it's on top of other content
+
+        .nameModule {
+            font-size: 20px;
+            height: 20px;
+            letter-spacing: 1px;
+        }
+
+        .butForm {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+    }
+}
+
+
+@media screen and (max-width: 630px) {
+    .form {
+        .basket-option{
+            width: 500px;
+            margin: auto;
+        }
+
+        .basket-wrapper{
+            width: 100%;
+
+            .basket-item{
+                width: 100%;
+            }
+        }
+    }
+
+
+}
+
+
+@media screen and (max-width: 510px) {
+    .form {
+        
+
+        .basket-option{
+            width: 400px;
+            margin: auto;
+            flex-wrap: wrap;
+            .basket-option-price{
+                width: 100%;
+                text-align: center;
+            }
+
+            .orderBut{
+                letter-spacing: 0;
+                font-weight: 300;
+                width: 100%;
+            }
+        }
+
+        .basket-wrapper{
+
+            .basket-item{
+                height: 125px;
+                .basket-img{
+                    width: 100px;
+                    height: 75px;
+                }
+
+                .manageCount{
+                    .basket-name{
+                        font-size: 16px;
+                    }
+
+                    .btnMinus,
+                    .btnAdd{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                .button-close{
+                    top: 15px;
+                    right: 0px;
+                }
+
+                .basket-price{
+                    font-size: 16px;
+                    bottom: 5px;
+                    right: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form {
+        .basket-option{
+            width: 310px;
+            margin: auto;
+            
+        }
+
+        .basket-wrapper{
+            width: 100%;
+
+            .basket-item{
+                width: 100%;
+                height: 125px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .form {
+
+        .manage{
+            .title{
+                font-size: 22px;
+                margin-left: 10px;
+            }
+        }
+
+        .basket-option{
+            width: 270px;
+            
+        }
+    }
+}
+
+
+

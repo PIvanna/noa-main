@@ -13,11 +13,13 @@ form {
         opacity: .05;
         top: 0;
         z-index: 0;
+        height: 100%;
     }
 
     @include flex-row(flex, column, space-around, center);
     padding-top: 50px;
-    min-height: 442px;;
+    min-height: 442px;
+    
     width: 680px;
     padding-bottom: 40px;
 
@@ -30,14 +32,19 @@ form {
         margin-bottom: 40px;
     }
 
+    .row{
+        width: 90%;
+    }
     .form-group {
-        @include box(100%, 60px);
+        width: 100%;
+        height: 60px;
         margin: 10px 0;
         @include flex-row(flex, row, space-around, center);
     }
 
     .inputForm {
         border-radius: 15px;
+        width: 40%;
     }
 
     .mat-mdc-text-field-wrapper {
@@ -69,12 +76,12 @@ form {
     .textModule {
         @include text(16px, sans-serif, normal);
         text-decoration: none;
-       
+
     }
 
-   
 
-     
+
+
 
     .textBlock {
         @include box(90%, 50px);
@@ -86,12 +93,106 @@ form {
             transition: color 0.5s, border-bottom 0.5s;
             position: relative;
 
-            
+
 
         }
 
 
-        
 
+
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    form {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    form {
+        width: 450px;
+        height: 520px;
+        padding: 10px;
+
+
+
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .form-two {
+        height: 600px;
+    }
+
+    form {
+        width: 400px;
+
+        .nameModule {
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        .form-group-row {
+            height: 140px;
+        }
+
+        .inputForm {
+            width: 100%;
+        }
+
+        .butForm {
+            height: 60px;
+            margin-top: 10px;
+        }
+
+        .row{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .form-two{
+        height: 600px;
+    }
+    form {
+        width: 300px;
+        padding: 30px 10px 0;
+
+        .nameModule{
+            font-size: 24px;
+            height: 25px;
+        }
+
+        .butForm{
+            height: 40px;
+        }
+
+    }
+}
+
+@media screen and (max-width: 370px) {
+    form {
+        width: 200px;
+
+
+        .nameModule{
+            font-size: 20px;
+            height: 20px;
+            letter-spacing: 1px;
+        }
+
+        .butForm{
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
     }
 }
