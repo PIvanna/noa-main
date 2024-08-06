@@ -1,0 +1,76 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins";
+@import "../../shared/styles/variables";
+
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 880px;
+    padding-bottom: 50px;
+
+
+    .backgroundFon {
+        position: absolute;
+        @include box(100%, 100%);
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpattern.png?alt=media&token=2d68ae9d-df78-46a7-9287-80e5a0cf9598");
+        background-color: rgba(0, 0, 0, 0.96);
+        background-size: contain;
+        background-repeat: repeat-y;
+        background-blend-mode: multiply;
+        z-index: -1;
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 1;
+        width: 90%;
+        min-height: 880px;
+        margin: 0px auto;
+        padding-top: 50px;
+
+        .menu{
+            width: 600px;
+            height: 55px;
+            border: 1px solid #2D7D7D;
+            margin: auto;
+            border-radius: 5px;
+            @include flex-row(flex, row, space-between, center);
+            padding: 5px;
+
+            .punkts-menu{
+                width: 30%;
+                height: 48px;
+                color: #c5c5c5;
+                list-style: none;
+                line-height: 48px;
+                text-align: center;
+                font-family: sans-serif;
+                letter-spacing: 0.5px;
+            }
+
+            .route-active-admin{
+                background-color: #2D7D7D;
+                color: white;
+                border-radius: 5px;
+            }
+        }
+
+        .cont{
+            width: 100%;
+            min-height: 200px;
+            margin: 60px auto;
+
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container{
+        .wrapper{
+            .menu{
+                width: 100%;
+            }
+        }
+    }
+}

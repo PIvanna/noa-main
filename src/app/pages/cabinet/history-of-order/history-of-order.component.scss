@@ -1,0 +1,145 @@
+@import "../../../shared/styles/base";
+@import "../../../shared/styles/mixins";
+@import "../../../shared/styles/variables";
+
+
+
+.container {
+    width: 900px;
+    min-height: 500px;
+    margin: auto;
+
+    .table {
+        width: 900px;
+        margin-top: 80px;
+
+
+
+        .table-row {
+            width: 100%;
+            @include flex-row(flex, row, start, center);
+            border-bottom: 1px solid #212121;
+            height: 100px;
+
+            .table-punkt {
+                width: 20%;
+                color: white;
+                font-family: sans-serif;
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+
+            .title {
+                height: 60px;
+                line-height: 60px;
+            }
+
+            .number {
+                width: 160px;
+            }
+
+            .date {
+                width: 160px;
+            }
+
+            .address {
+                width: 320px;
+            }
+
+            .suma {
+                width: 106px;
+            }
+
+            .status {
+                width: 160px;
+            }
+
+            .message {
+                width: 100%;
+                color: white;
+                font-family: sans-serif;
+                font-size: 16px;
+                letter-spacing: 1px;
+                text-align: center;
+                line-height: 30px;
+
+                &-span {
+                    border-bottom: 1px solid transparent;
+                    cursor: pointer;
+                    &:hover {
+                        border-bottom: 1px solid white;
+                    }
+                }
+
+
+            }
+        }
+
+        .table-header {
+            height: 60px;
+        }
+    }
+
+}
+
+
+@media screen and (max-width: 1100px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+
+            .table-row{
+                .table-punkt{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+
+            .table-header{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+
+            .table-row{
+                flex-wrap: wrap;
+                height: 300px;
+                .table-punkt{
+                    width: 50%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

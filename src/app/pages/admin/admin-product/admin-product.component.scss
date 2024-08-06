@@ -1,0 +1,386 @@
+@import "../../../shared/styles/base";
+@import "../../../shared/styles/mixins";
+@import "../../../shared/styles/variables";
+
+
+.container {
+    @include box(100%, 100%);
+    min-height: 100px;
+    @include flex-row(flex, column, space-between, center);
+
+    .add {
+
+
+        .butAdd {
+            @include box(200px, 70px);
+            @include text(20px, sans-serif, normal);
+            border-radius: 25px;
+            color: #2D7D7D;
+            border: 3px solid #2D7D7D;
+            background-color: white;
+            margin: auto;
+
+            &:hover {
+                border: 3px solid #2D7D7D;
+                background-color: #2D7D7D;
+                color: white;
+            }
+        }
+
+        .active-but {
+            border: 5px solid #2D7D7D;
+            background-color: #2D7D7D;
+            color: black;
+        }
+
+        form {
+            @include box(650px, 900px);
+            min-height: 200px;
+            @include flex-row(flex, column, space-between, start);
+            margin: auto;
+            padding-top: 50px;
+
+            .first-part {
+                @include box(100%, 80px);
+                @include flex-row(flex, row, space-between, center);
+                margin: 20px auto;
+
+                .input-first-part {
+                    @include box(45%, 40px);
+                    border-radius: 20px;
+                    padding: 5px;
+
+                    @include text(16px, sans-serif, normal);
+                    line-height: 40px;
+
+                    &::placeholder {
+                        @include text(16px, sans-serif, normal);
+                        line-height: 40px;
+                    }
+                }
+
+
+            }
+
+
+            textarea {
+                @include box(100%, 200px);
+                resize: none;
+                border-radius: 20px;
+                padding: 15px;
+                @include text(16px, sans-serif, normal);
+                line-height: 40px;
+
+                &::placeholder {
+                    @include text(16px, sans-serif, normal);
+                    line-height: 40px;
+                }
+            }
+
+            .custom-file-upload {
+                @include box(200px, 40px);
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 6px 12px;
+                cursor: pointer;
+                background-color: #f9f9f9;
+                border-radius: 4px;
+                border-radius: 20px;
+                margin-right: 10px;
+                @include flex-row(flex, row, center, center);
+
+            }
+
+            .custom-file-upload:hover {
+                background-color: #e9e9e9;
+            }
+
+        }
+
+    }
+
+
+    .table {
+        width: 1000px;
+        min-height: 100px;
+        margin: 20px auto;
+
+        .topTable,
+        .restTable {
+            margin-top: 40px;
+            @include box(100%, 150px);
+            @include flex-row(flex, row, space-between, center);
+            border-bottom: 3px solid #2D7D7D;
+            .wrapper-element {
+                width: 40%;
+                height: 100px;
+                @include flex-row(flex, row, space-around, center);
+
+            }
+            .elementTable {
+                @include box(16%, 100px);
+                @include text(16px, sans-serif, normal);
+                line-height: 30px;
+                @include flex-row(flex, column, center, center);
+                letter-spacing: 1px;
+                color: white;
+
+                img {
+                    @include box(200px, 100px);
+                }
+            }
+        }
+
+    }
+
+
+
+
+    .butAddElement {
+        @include box(200px, 40px);
+        @include text(20px, sans-serif, bold);
+        border-radius: 25px;
+        color: black;
+        border: 3px solid #2D7D7D;
+        background-color: #2D7D7D;
+        margin-top: 30px;
+    }
+
+    .pManage {
+        @include text(16px, sans-serif, bold);
+        @include box(80%, 50px);
+        margin-bottom: 10px;
+        line-height: 50px;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        border: none;
+        background-color: #2D7D7D;
+    }
+
+    .progress-bar {
+        height: 50px;
+        border-radius: 20px;
+        background-color: #2D7D7D;
+        margin-top: 10px;
+    }
+
+    .delImg {
+        @include box(100px, 50px);
+        border-radius: 10px;
+        background-color: red;
+        margin-top: 20px;
+        border: none;
+    }
+
+    #imgUp {
+        @include box(700px, 180px);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+
+            .restTable{
+                .elementTable{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+
+            .restTable{
+                height: 500px;
+                flex-wrap: wrap;
+                .elementTable{
+                    font-size: 14px;
+                    width: 33% !important;
+                    .pManage {
+                        font-weight: 300;
+                        font-size: 14px;
+                        width: 100%;
+                    }
+
+                    img {
+                        @include box(200px, 200px);
+                    }
+                }
+            }
+        }
+
+
+
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+
+            .topTable,
+            .restTable {
+                .elementTable {
+                    @include box(16%, 100px);
+                    @include text(14px, sans-serif, normal);
+                    line-height: 25px;
+                    @include flex-row(flex, column, center, center);
+                    letter-spacing: 0px;
+                    color: white;
+
+                    img {
+                        @include box(150px, 75px);
+                    }
+                }
+            }
+        }
+
+        .pManage {
+            font-weight: 300;
+            font-size: 14px;
+            width: 100% !important;
+        }
+    }
+}
+
+@media screen and (max-width: 585px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+
+                .first-part{
+                    flex-wrap: wrap;
+                    height: 200px;
+
+                    .input-first-part{
+                        width: 100%;
+                    }
+                }
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+
+
+            .topTable{
+                .elementTable{
+                    font-size: 12px;
+                }
+            }
+            .restTable {
+                flex-direction: column;
+                min-height: 450px;
+
+                .wrapper-element{
+                    width: 100%;
+                }
+
+                .elementTable {
+                    width: 100%;
+                    height: 100px;
+                    margin-bottom: 30px;
+
+                    img {
+                        @include box(200px, 200px);
+                    }
+                }
+            }
+        }
+
+        .pManage {
+            font-weight: 300;
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+
+                .first-part{
+                    flex-wrap: wrap;
+                    height: 200px;
+
+                    .input-first-part{
+                        width: 100%;
+                    }
+                }
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+
+
+            .topTable{
+                .elementTable{
+                    font-size: 10px;
+                }
+            }
+            .restTable {
+                flex-direction: column;
+                min-height: 450px;
+
+                .wrapper-element{
+                    width: 100%;
+                }
+
+                .elementTable {
+                    width: 100%;
+                    height: 100px;
+                    margin-bottom: 30px;
+
+                    img {
+                        @include box(200px, 200px);
+                    }
+                }
+            }
+        }
+
+        .pManage {
+            font-weight: 300;
+            font-size: 14px;
+        }
+    }
+}

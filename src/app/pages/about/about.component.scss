@@ -1,0 +1,126 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins";
+@import "../../shared/styles/variables";
+
+
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 880px;
+
+
+    .backgroundFon {
+        position: absolute;
+        @include box(100%, 100%);
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/noa1-cc860.appspot.com/o/images%2Fpattern.png?alt=media&token=2d68ae9d-df78-46a7-9287-80e5a0cf9598");
+        background-color: rgba(0, 0, 0, 0.96);
+        background-size: contain;
+        background-repeat: repeat-y;
+        background-blend-mode: multiply;
+        z-index: -1;
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 1;
+        width: 80%;
+        min-height: 880px;
+        margin: 0px auto;
+        padding-top: 50px;
+
+        #title {
+            @include box(100%, 60px);
+            text-align: center;
+            font-size: 42px;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .main {
+            width: 100%;
+            min-height: 100px;
+            @include flex-row(flex, row, space-between, center);
+
+            .wrapper-text {
+                width: 45%;
+                min-height: 100px;
+
+                .article-title {
+                    width: 100%;
+                    min-height: 100px;
+                    font-size: 34px;
+                    font-weight: 500;
+                    color: white;
+                    font-family: sans-serif;
+                    letter-spacing: 0.5px;
+                    text-align: left;
+                }
+
+                .text {
+                    width: 100%;
+                    min-height: 100px;
+                    font-size: 18px;
+                    color: white;
+                    font-family: sans-serif;
+                    letter-spacing: 0.5px;
+                    text-align: left;
+                    margin-top: 30px;
+                    line-height: 24px;
+
+                    .text-p {
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            #image {
+                width: 505px;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 1365px) {
+    .container {
+        .wrapper {
+            .main {
+                .wrapper-text {
+                    .article-title {
+                        font-size: 28px;
+                    }
+
+                    .text {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        .wrapper {
+            .main {
+                .wrapper-text {
+                    width: 100%;
+
+                    .article-title{
+                        text-align: justify;
+                    }
+                    .text{
+                        text-align: justify;
+                    }
+                }
+
+                #image{
+                    display: none;
+                }
+            }
+        }
+    }
+}

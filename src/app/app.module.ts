@@ -8,25 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { DeliveryPaymentComponent } from './delivery-payment/delivery-payment.component';
-import { ContactComponent } from './contact/contact.component';
-import { JobComponent } from './job/job.component';
-import { JobMeetComponent } from './job-meet/job-meet.component';
-import { DonatymoComponent } from './donatymo/donatymo.component';
-import { OfertaComponent } from './oferta/oferta.component';
-import { AuthorizationComponent } from './authorization/authorization.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
-import { AdminProductComponent } from './admin/admin-product/admin-product.component';
-import { ProductComponent } from './product/product.component';
-import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { AuthdialogComponent } from './components/authdialog/authdialog.component';
-import { CabinetComponent } from './cabinet/cabinet.component';
-import { UserInfoComponent } from './cabinet/user-info/user-info.component';
-import { HistoryOfOrderComponent } from './cabinet/history-of-order/history-of-order.component';
-import { PasswordComponent } from './cabinet/password/password.component';
 import { MenuComponent } from './components/menu/menu.component'; // Import MenuComponent
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,37 +23,17 @@ import { environment } from '../environments/environment';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { DeliveryComponent } from './components/delivery/delivery.component';
-import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    AboutComponent,
-    DeliveryPaymentComponent,
-    ContactComponent,
-    JobComponent,
-    JobMeetComponent,
-    DonatymoComponent,
-    OfertaComponent,
-    AuthorizationComponent,
-    AdminComponent,
-    AdminCategoryComponent,
-    AdminProductComponent,
-    ProductComponent,
-    ProductInfoComponent,
     AuthdialogComponent,
-    CabinetComponent,
-    UserInfoComponent,
-    HistoryOfOrderComponent,
-    PasswordComponent,
     MenuComponent,
     MainMenuComponent,
     BasketComponent,
     DeliveryComponent,
-    OrderComponent,
   ],
   imports: [
     BrowserModule,
