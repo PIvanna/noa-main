@@ -45,14 +45,20 @@
             <div class="elementTable">Дії</div>
         </div>
         <div class="restTable" *ngFor="let product of adminProducts; index as i ">
-            <div style="width: 10%;" class="elementTable">{{ i + 1 }}</div>
-            <div style="width: 10%;" class="elementTable">{{ product.category.name }}</div>
-            <div style="width: 20%" class="elementTable">{{ product.name }}</div>
-            <div style="width: 20%" class="elementTable">{{ product.description | slice:0:40 }}
-                <span *ngIf="product.description.length > 40">...</span>
+            <div class="wrapper-element">
+                <div style="width: 10%;" class="elementTable">{{ i + 1 }}</div>
+                <div style="width: 10%;" class="elementTable">{{ product.category.name }}</div>
+                <div style="width: 20%" class="elementTable">{{ product.name }}</div>
             </div>
-            <div style="width: 10%;" class="elementTable">{{ product.weight }}</div>
-            <div style="width: 10%;" class="elementTable">{{ product.price }}</div>
+            <div class="wrapper-element">
+                <div style="width: 20%" class="elementTable">{{ product.description | slice:0:40 }}
+                    <span *ngIf="product.description.length > 40">...</span>
+                </div>
+                <div style="width: 10%;" class="elementTable">{{ product.weight }}</div>
+                <div style="width: 10%;" class="elementTable">{{ product.price }}</div>
+            </div>
+
+
             <div class="elementTable">
                 <img [src]="product.imagePath" alt="">
             </div>

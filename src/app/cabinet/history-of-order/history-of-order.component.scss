@@ -61,6 +61,7 @@
                 font-size: 16px;
                 letter-spacing: 1px;
                 text-align: center;
+                line-height: 30px;
 
                 &-span {
                     border-bottom: 1px solid transparent;
@@ -79,4 +80,66 @@
         }
     }
 
+}
+
+
+@media screen and (max-width: 1100px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+            
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+            
+            .table-row{
+                .table-punkt{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+            
+            .table-header{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        width: 90%;
+
+        .table{
+            width: 100%;
+            
+            .table-row{
+                flex-wrap: wrap;
+                height: 300px;
+                .table-punkt{
+                    width: 50%;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }

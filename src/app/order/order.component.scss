@@ -172,7 +172,7 @@
                         border: none;
                         transition: background-color 0.5s, color 0.5s;
 
-                        &:hover{
+                        &:hover {
                             background-color: black;
                             border: 1px solid #2D7D7D;
                             color: #2D7D7D;
@@ -262,6 +262,129 @@
                         font-family: sans-serif;
                         letter-spacing: 1px;
                         color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .container {
+        .wrapper {
+            .wrapper-flex {
+                width: 100%;
+
+                .wrapper-form {
+                    width: 48%;
+
+                    #formPersonal {
+                        width: 100%;
+
+                    }
+                }
+
+                .basket-wrapper {
+                    width: 48%;
+
+                    .basket-option {
+                        width: 100%;
+                    }
+
+                    .basket-item {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        .wrapper {
+
+            #title {
+                font-size: 30px;
+            }
+
+            .wrapper-flex {
+                flex-direction: column;
+
+                .wrapper-form {
+                    width: 100%;
+
+                    #formPersonal {
+                        width: 100%;
+
+                    }
+                }
+
+                .basket-wrapper {
+                    width: 100%;
+
+                    .basket-option {
+                        width: 100%;
+                    }
+
+                    .basket-item {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        .wrapper {
+
+            #title {
+                font-size: 24px;
+            }
+
+            .wrapper-flex {
+                flex-direction: column;
+
+                .wrapper-form {
+                    width: 100%;
+
+                    #formPersonal {
+                        width: 100%;
+
+                        .punkts-menu {
+                            .num{
+                                font-size: 12px;
+                            }
+                        }
+                        
+                        .label {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .basket-wrapper {
+                    width: 100%;
+
+                    .basket-option {
+                        width: 100%;
+                    }
+
+                    .basket-item {
+                        width: 100%;
+
+                        .basket-img{
+                            width: 90px;
+                            height: 70px;
+                        }
+
+                        .manageCount{
+                            .basket-name{
+                                font-size: 14px;
+                            }
+                        }
                     }
                 }
             }

@@ -14,7 +14,7 @@ export class HistoryOfOrderComponent {
   ) {
     this.initOrder();
   }
-
+ 
   initOrder() {
     const currentUserString = localStorage.getItem('currentUser');
     const currentUser = currentUserString ? JSON.parse(currentUserString) : null;

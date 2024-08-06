@@ -64,3 +64,13 @@
         }
     }
 }
+
+@media screen and (max-width: 650px) {
+    .container{
+        .wrapper{ 
+            .menu{
+                width: 100%;
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@
             <div class="num">1.</div>
             <div class="label">Особисті дані</div>
         </div>
-        <div class="group">
+        <div class="group group-small" >
             <input formControlName="firstName" class="input-small" name="name" placeholder="*Ваше ім'я" type="text"
                 id="name">
             <input type="text" formControlName="lastName" class="input-small" name="surname"
@@ -22,7 +22,7 @@
             <div class="num">2.</div>
             <div class="label">Адреса</div>
         </div>
-        <div class="group">
+        <div class="group group-small">
             <button type="button" id="butAddress" (click)="addAddress()">Додати адресу</button>
             <button (click)="saveChange()"  id="butLogin" type="submit">Зберегти зміни</button>
         </div>

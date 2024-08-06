@@ -35,9 +35,11 @@
             <div class="elementTable">Дії</div>
         </div>
         <div class="restTable" *ngFor="let category of adminCategory; index as i ">
-            <div style="width: 10%;" class="elementTable">{{ i + 1 }}</div>
-            <div style="width: 10%;" class="elementTable">{{ category.name }}</div>
-            <div style="width: 20%" class="elementTable">{{ category.path }}</div>
+            <div class="wrapper-element">
+                <div style="width: 10%;" class="elementTable">{{ i + 1 }}</div>
+                <div style="width: 10%;" class="elementTable">{{ category.name }}</div>
+                <div style="width: 20%" class="elementTable">{{ category.path }}</div>
+            </div>
             <div class="elementTable">
                 <img [src]="category.imagePath" alt="">
             </div>

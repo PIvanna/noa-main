@@ -64,3 +64,21 @@
         }
     }
 }
+
+
+
+@media screen and (max-width: 650px) {
+    .container{
+        .wrapper{ 
+            .menu{
+                width: 100%;
+                flex-wrap: wrap;
+                height: 165px;
+
+                .punkts-menu{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

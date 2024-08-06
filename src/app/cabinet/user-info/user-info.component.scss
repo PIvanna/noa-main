@@ -128,3 +128,66 @@
     }
 
 }
+
+
+
+@media screen and (max-width: 850px) {
+    .container{
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container{
+        width: 400px;
+
+        #formPersonal{
+            .group-small{
+                height: 180px;
+                flex-wrap: wrap;
+            }
+
+            .input-small{
+                width: 100%;
+            }
+
+            #butLogin{
+                width: 100%;
+            }
+
+            #butAddress{
+                width: 100%;
+                
+            }
+        }
+    }
+}
+
+
+
+
+@media screen and (max-width: 420px) {
+    .container{
+        width: 320px;
+
+        #formPersonal{
+            .group-small{
+                height: 180px;
+                flex-wrap: wrap;
+            }
+
+            .input-small{
+                width: 100%;
+            }
+
+            #butLogin{
+                width: 100%;
+            }
+
+            #butAddress{
+                width: 100%;
+                
+            }
+        }
+    }
+}

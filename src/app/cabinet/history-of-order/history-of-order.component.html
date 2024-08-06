@@ -11,11 +11,15 @@
             <div class="table-row" *ngFor="let order of orders; let i = index">
                 <div class="table-punkt number">{{ i + 1 }}</div>
                 <div class="table-punkt date">{{ formatDate(order.date) }}</div>
-                <div class="table-punkt address">
+                <div class="table-punkt address" *ngIf="order.address.type == 'Доставка'">
                     {{ order.address.type }}<br>
                     Місто: {{ order.address.city }}<br>
                     Адреса: {{ order.address.adress }}<br>
                     Будинок: {{ order.address.house }}
+                </div>
+                <div class="table-punkt address" *ngIf="order.address.type == 'Самовивіз'">
+                    {{ order.address.type }}<br>
+                    Ресторан: {{ order.address.restaurant }}<br>
                 </div>
                 <div class="table-punkt suma">{{ order.total}}</div>
                 <div class="table-punkt status">{{ order.status }}</div>

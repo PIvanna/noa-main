@@ -96,6 +96,13 @@
             @include flex-row(flex, row, space-between, center);
             border-bottom: 3px solid #2D7D7D;
 
+            .wrapper-element {
+                width: 48%;
+                height: 100px;
+                @include flex-row(flex, row, space-between, center);
+
+            }
+
             .elementTable {
                 @include box(16%, 100px);
                 @include text(16px, sans-serif, normal);
@@ -154,5 +161,108 @@
 
     #imgUp {
         @include box(700px, 180px);
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+
+            .topTable,
+            .restTable {
+                .elementTable {
+                    @include box(16%, 100px);
+                    @include text(14px, sans-serif, normal);
+                    line-height: 25px;
+                    @include flex-row(flex, column, center, center);
+                    letter-spacing: 0px;
+                    color: white;
+
+                    img {
+                        @include box(150px, 75px);
+                    }
+                }
+            }
+        }
+
+        .pManage {
+            font-weight: 300;
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 585px) {
+    .container {
+        .add {
+            form {
+                width: 100%;
+
+                .first-part{
+                    flex-wrap: wrap;
+                    height: 200px;
+
+                    .input-first-part{
+                        width: 100%;
+                    }
+                }
+            }
+
+
+        }
+
+        .table {
+            width: 100%;
+
+            .restTable {
+                flex-direction: column;
+                min-height: 450px;
+
+                .wrapper-element{
+                    width: 100%;
+                }
+
+                .elementTable { 
+                    width: 100%;
+                    height: 100px;
+                    margin-bottom: 30px;
+
+                    img {
+                        @include box(200px, 200px);
+                    }
+                }
+            }
+        }
+
+        .pManage {
+            font-weight: 300;
+            font-size: 14px;
+        }
     }
 }
